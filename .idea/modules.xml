@@ -3,6 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Backend.iml" filepath="$PROJECT_DIR$/.idea/Backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/block1-process-file-and-streams/block1-process-file-and-streams.iml" filepath="$PROJECT_DIR$/block1-process-file-and-streams/block1-process-file-and-streams.iml" />
+      <module fileurl="file://$PROJECT_DIR$/block3-maven-package/block3-maven-package.iml" filepath="$PROJECT_DIR$/block3-maven-package/block3-maven-package.iml" />
+      <module fileurl="file://$PROJECT_DIR$/block5-command-line-runner/block5-command-line-runner.iml" filepath="$PROJECT_DIR$/block5-command-line-runner/block5-command-line-runner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/block5-logging/block5-logging.iml" filepath="$PROJECT_DIR$/block5-logging/block5-logging.iml" />
+      <module fileurl="file://$PROJECT_DIR$/block5-profiles/block5-profiles.iml" filepath="$PROJECT_DIR$/block5-profiles/block5-profiles.iml" />
+      <module fileurl="file://$PROJECT_DIR$/block5-properties/block5-properties.iml" filepath="$PROJECT_DIR$/block5-properties/block5-properties.iml" />
     </modules>
   </component>
 </project>
