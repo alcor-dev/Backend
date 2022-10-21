@@ -1,8 +1,17 @@
-spring.profiles.active: local
-bd.url: localhost:5432
+spring:
+  profiles:
+    active: local
+bd:
+  url: localhost:5432
 ---
-spring.profiles.active: INT
-bd.url: int.bosonit.com:5432
+spring:
+  profiles:
+    active: INT
+bd:
+  url: int.bosonit.com:5432
 ---
-spring.profiles.active: PRO
-bd.url: pro.bosonit.com:5432
+spring:
+  profiles:
+    active: PRO
+bd:
+  url: pro.bosonit.com:5432
