@@ -1,8 +1,6 @@
-13:33:35.667 [http-nio-8080-exec-1] ERROR c.e.block5logging.MainController - Mensaje a nivel de ERROR
-2022-10-19 13:35:24,230 ERROR [http-nio-8080-exec-1] Mensaje a nivel de ERROR
-2022-10-19 13:37:02,548 WARN [http-nio-8080-exec-1] Mensaje a nivel de WARNING
-2022-10-19 13:37:02,550 ERROR [http-nio-8080-exec-1] Mensaje a nivel de ERROR
-2022-10-19 13:52:17,992 WARN [http-nio-8080-exec-1] Mensaje a nivel de WARNING
-2022-10-19 13:52:17,994 ERROR [http-nio-8080-exec-1] Mensaje a nivel de ERROR
-2022-10-19 13:55:06,692 WARN [http-nio-8080-exec-1] Mensaje a nivel de WARNING
-2022-10-19 13:55:06,693 ERROR [http-nio-8080-exec-1] Mensaje a nivel de ERROR
+2022-10-21 13:37:58,650 WARN [http-nio-8080-exec-1] Mensaje a nivel de WARNING
+2022-10-21 13:37:58,662 ERROR [http-nio-8080-exec-1] Mensaje a nivel de ERROR
+2022-10-21 13:38:56,249 WARN [http-nio-8080-exec-2] Mensaje a nivel de WARNING
+2022-10-21 13:38:56,251 ERROR [http-nio-8080-exec-2] Mensaje a nivel de ERROR
+2022-10-21 13:40:24,123 WARN [http-nio-8080-exec-2] Mensaje a nivel de WARNING
+2022-10-21 13:40:24,125 ERROR [http-nio-8080-exec-2] Mensaje a nivel de ERROR

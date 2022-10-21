@@ -12,7 +12,7 @@ public class MainController {
     //Creamos un logger usando LoggerFactory y cogiendo la propia clase para ello
     Logger logger = LoggerFactory.getLogger(MainController.class);
 
-    @RequestMapping("/")
+    @RequestMapping("/test")
     public String index() {
         logger.trace("Mensaje a nivel de TRACE");
         logger.debug("Mensaje a nivel de DEBUG");

@@ -45,7 +45,7 @@ public class Main {
                     if (result[1] == "") {
                         result[1] = "UNKNOWN";
                         //En caso de que la edad no aparezca asignaremos 0
-                    } else if (result[2] == "") {
+                    } if (result[2] == "") {
                         result[2] = "0";
                     }
                     //Vemos como era la línea original
