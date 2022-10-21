@@ -10,10 +10,6 @@ import org.springframework.core.env.Environment;
 
 @SpringBootApplication
 @Configuration
-@PropertySources({
-		@PropertySource("classpath:application-int.properties"),
-		@PropertySource("classpath:application-pro.properties")
-})
 public class Block5ProfilesApplication implements CommandLineRunner {
 	//Usamos Autowired para que nos haga las conexiones oportunas con las variables de entorno
 	@Autowired
