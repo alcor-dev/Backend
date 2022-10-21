@@ -15,12 +15,16 @@ import org.springframework.core.env.Environment;
 		@PropertySource("classpath:application-pro.properties")
 })
 public class Block5ProfilesApplication implements CommandLineRunner {
+	//Usamos Autowired para que nos haga las conexiones oportunas con las variables de entorno
 	@Autowired
 	Environment environment;
 
+	//Asignamos el valor correspondiente al perfil en el que nos encontramos
+	//El valor se cogerá según el entorno asignado mediante parámetros en la cadena de comandos
 	@Value("${spring.profiles.active}")
 	String profile;
 
+	//Guardamos otro valor guardado en el archivo application.configuration correspondiente
 	@Value("${bd.url}")
 	String url;
 
@@ -28,66 +32,41 @@ public class Block5ProfilesApplication implements CommandLineRunner {
 		SpringApplication.run(Block5ProfilesApplication.class, args);
 	}
 
+	//Creamos un Bean y le decimos que ejecute X código cuando coincida con un perfil concreto
 	@Bean
 	@Profile("local")
 
+	//Creamos un CommandLineRunner que nos devuelva tanto el perfil como su bd.url
 	CommandLineRunner printLocal() {
-		//System.out.println(getProfile());
 		return local -> {
-			System.out.println("EL perfil actual es: " + getProfile());
+			System.out.println("EL perfil actual es: " + getProfile() + " y la URL es: " + url);
 		};
 	}
 
 	@Bean
 	@Profile("PRO")
 	CommandLineRunner printPro() {
-		//System.out.println(getProfile());
 		return local -> {
-			System.out.println("EL perfil actual es: " + getProfile());
+			System.out.println("EL perfil actual es: " + getProfile() + " y la URL es: " + url);
 		};
 	}
 
 	@Bean
 	@Profile("INT")
 	CommandLineRunner printInt() {
-		System.out.println(getProfile());
 		return local -> {
-			System.out.println("El perfil actual es: " + getProfile());
-		};
-	}
-
-	@Bean
-	@Profile({"TEST"})
-	CommandLineRunner printTest() {
-		System.out.println(getProfile());
-		return local -> {
-			System.out.println("TEST");
+			System.out.println("EL perfil actual es: " + getProfile() + " y la URL es: " + url);
 		};
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-//		showProfiles();
-		System.out.println("La variable perfil ahora mismo es: " + profile);
-		getData();
-		System.out.println("El perfil es: " + environment.getProperty("spring.profiles.active") + " el URL es: " +  url);
 	}
 
+	//Pequeño código para obtener los perfiles actuales
 	String getProfile(){
 		System.out.println(environment.getActiveProfiles());
 		String[] profiles = environment.getActiveProfiles();
 		return profiles.length>0?profiles[0]:"default";
-	}
-
-	void getData(){
-		String dbUrl = environment.toString();
-		System.out.println(dbUrl);
-	}
-
-	void showProfiles() {
-		String[] profiles = environment.getActiveProfiles();
-		for (int i = 0; i < profiles.length; i++) {
-			System.out.println(profiles[i]);
-		}
 	}
 }
