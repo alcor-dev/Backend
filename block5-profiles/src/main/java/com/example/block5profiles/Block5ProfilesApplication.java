@@ -10,6 +10,10 @@ import org.springframework.core.env.Environment;
 
 @SpringBootApplication
 @Configuration
+@PropertySources({
+		@PropertySource("classpath:application-int.properties"),
+		@PropertySource("classpath:application-pro.properties")
+})
 public class Block5ProfilesApplication implements CommandLineRunner {
 	@Autowired
 	Environment environment;
@@ -17,8 +21,8 @@ public class Block5ProfilesApplication implements CommandLineRunner {
 	@Value("${spring.profiles.active}")
 	String profile;
 
-//	@Value("${bd.url}")
-//	String url;
+	@Value("${bd.url}")
+	String url;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Block5ProfilesApplication.class, args);
@@ -66,6 +70,7 @@ public class Block5ProfilesApplication implements CommandLineRunner {
 //		showProfiles();
 		System.out.println("La variable perfil ahora mismo es: " + profile);
 		getData();
+		System.out.println("El perfil es: " + environment.getProperty("spring.profiles.active") + " el URL es: " +  url);
 	}
 
 	String getProfile(){
