@@ -18,10 +18,10 @@ import java.util.List;
 public class Controller2 {
 
     @Autowired
-    Person person;
+    ServicePerson servicePerson;
 
     @Autowired
-    List<City> cityList;
+    Person person;
 
     @PostMapping("/controller2/getPerson")
     public String getPersona() {
@@ -31,6 +31,6 @@ public class Controller2 {
     @GetMapping("/controller2/getCity")
     public String getListCity() {
 
-        return cityList.get(0).getName();
+        return servicePerson.writeList();
     }
 }

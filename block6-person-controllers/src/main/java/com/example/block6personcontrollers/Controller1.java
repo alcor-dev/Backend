@@ -19,7 +19,7 @@ public class Controller1 {
     Person person;
 
     @Autowired
-    List<City> cityList;
+    ServicePersonImpl servicePerson;
 
     //Creamos la URL que se nos pide
     @GetMapping("/controller1/addPerson")
@@ -35,14 +35,8 @@ public class Controller1 {
 
     @PostMapping("/controller1/addCity")
     public String addCity(@RequestHeader("name") String name, @RequestHeader("population") int population) {
-        String lista = "";
-        cityList.set( cityList.size()-1, new City(name, population));
-        for (int i = 0; i < cityList.size(); i++) {
-            System.out.println(cityList.get(i).getName());
-            System.out.println(cityList.size());
-            lista += cityList.get(i).getName();
-        }
-        return "Añadida la ciudad: " + cityList.get(0).getName() + " a la lista";
+        servicePerson.addToList(name, population);
+        return servicePerson.showLast();
     }
 
 }
