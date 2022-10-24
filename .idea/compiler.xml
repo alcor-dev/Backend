@@ -6,10 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="block5-logging" />
         <module name="block5-profiles" />
         <module name="block5-command-line-runner" />
-        <module name="block5-logging" />
         <module name="block5-properties" />
+        <module name="block6-simple-controllers" />
         <module name="block3-maven-package" />
         <module name="block1-process-file-and-streams" />
       </profile>
@@ -21,6 +22,7 @@
       <module name="block5-logging" target="17" />
       <module name="block5-profiles" target="17" />
       <module name="block5-properties" target="17" />
+      <module name="block6-simple-controllers" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
