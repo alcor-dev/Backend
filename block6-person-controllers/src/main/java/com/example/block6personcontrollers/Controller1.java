@@ -1,19 +1,26 @@
 package com.example.block6personcontrollers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.web.bind.annotation.*;
+
+import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping
+@Configurable
 public class Controller1 {
 
     //Usamos la anotación Autowired para conectar los datos del Person que vamos a hacer
     //Al hacer uso del autowired, conectamos todos los Autowired del mismo tipo
     @Autowired
     Person person;
+
+    @Autowired
+    List<City> cityList;
+
     //Creamos la URL que se nos pide
     @GetMapping("/controller1/addPerson")
     //Creamos el método en el que recogemos los header requeridos: nombre, ciudad y edad
@@ -24,6 +31,18 @@ public class Controller1 {
         person.setAge(age);
         //Hacemos un return con el nuevo objeto generado
         return "La persona es: " + person.getName() + " de: " + person.getCity() + " y tiene " + person.getAge() + " años";
+    }
+
+    @PostMapping("/controller1/addCity")
+    public String addCity(@RequestHeader("name") String name, @RequestHeader("population") int population) {
+        String lista = "";
+        cityList.set( cityList.size()-1, new City(name, population));
+        for (int i = 0; i < cityList.size(); i++) {
+            System.out.println(cityList.get(i).getName());
+            System.out.println(cityList.size());
+            lista += cityList.get(i).getName();
+        }
+        return "Añadida la ciudad: " + cityList.get(0).getName() + " a la lista";
     }
 
 }
