@@ -11,7 +11,7 @@ public class MainController {
     //Creamos un método con anotación GetMapping
     //Usamos el {} para crear una variable en la URL
     //Llamamos a la variable usando PathVariable
-    @GetMapping("/user/{user}" )
+    @GetMapping("/user/{user}")
     //Pedimos en que la variable user almacene el nombre añadido en el path
     public String user(@PathVariable("user") String name){
         //Retornamos el nombre almacenado para usarlo
