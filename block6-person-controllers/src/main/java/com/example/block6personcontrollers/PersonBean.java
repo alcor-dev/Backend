@@ -1,7 +1,5 @@
 package com.example.block6personcontrollers;
 
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -11,10 +9,12 @@ public class PersonBean {
     private String city;
     private int age;
 
+    PersonBean(){}
+
     PersonBean(String name, String city, int age) {
-        this.name = name;
-        this.city = city;
-        this.age = age;
+        setName(name);
+        setCity(city);
+        setAge(age);
     }
 
     public String getName() {
@@ -41,22 +41,7 @@ public class PersonBean {
         this.age = age;
     }
 
-
-    @Bean
-    @Qualifier("beanDoesThings1")
-    public String beanDoesThings1(){
-        return "Este es el Bean 1 " + getName();
-    }
-
-    @Bean
-    @Qualifier("beanDoesThings2")
-    public String beanDoesThings2(){
-        return "Este es el Bean 2 y devuelve la ciudad: " + getCity();
-    }
-
-    @Bean
-    @Qualifier("beanDoesThings3")
-    public String beanDoesThings3(){
-        return "Este es el bean 3 y devuelve la edad: " + getAge();
+    public String beanAction() {
+        return "Nombre: " + getName() + " Ciudad: " + getCity() + " Edad: " + getAge();
     }
 }

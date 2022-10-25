@@ -2,6 +2,7 @@ package com.example.block6personcontrollers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping
-@Configurable
+@Configuration
 public class Controller2 {
 
     //Creamos otro Autowired de ServicePerson

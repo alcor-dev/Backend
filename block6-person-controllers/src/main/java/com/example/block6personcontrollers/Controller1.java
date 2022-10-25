@@ -3,6 +3,7 @@ package com.example.block6personcontrollers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLOutput;
@@ -11,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping
-@Configurable
+@Configuration
 public class Controller1 {
 
     //Usamos la anotación Autowired para conectar los datos del Person que vamos a hacer
