@@ -17,7 +17,7 @@ public class ControllerBean {
     //Al haber 3 Beans dentro del BeanConfigurator, no logra decidirse por ninguno y no muestra ninguna información
     //Usamos Qualifier como forma de filtro para hacer que el programa elija el Bean que más nos convenga
     @Autowired
-    @Qualifier("bean1")
+    @Qualifier("bean2")
     PersonBean personBean;
 
     //Creamos una url donde a partir de cualquier entrada desde localhost:8080/controller/bean/ podamos usar
