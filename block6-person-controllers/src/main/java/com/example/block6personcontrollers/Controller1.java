@@ -2,6 +2,7 @@ package com.example.block6personcontrollers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLOutput;
@@ -21,6 +22,7 @@ public class Controller1 {
     @Autowired
     ServicePersonImpl servicePerson;
 
+    //Primer ejercicio realizado
     //Creamos la URL que se nos pide
     @GetMapping("/controller1/addPerson")
     //Creamos el método en el que recogemos los header requeridos: nombre, ciudad y edad
@@ -33,10 +35,10 @@ public class Controller1 {
         return "La persona es: " + person.getName() + " de: " + person.getCity() + " y tiene " + person.getAge() + " años";
     }
 
+    //Segundo ejercicio realizado
     @PostMapping("/controller1/addCity")
     public String addCity(@RequestHeader("name") String name, @RequestHeader("population") int population) {
         servicePerson.addToList(name, population);
         return servicePerson.showLast();
     }
-
 }

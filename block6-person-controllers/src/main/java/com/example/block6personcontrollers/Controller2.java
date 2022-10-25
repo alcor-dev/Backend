@@ -17,20 +17,22 @@ import java.util.List;
 @Configurable
 public class Controller2 {
 
+    //Creamos otro Autowired de ServicePerson
     @Autowired
-    ServicePerson servicePerson;
+    ServicePersonImpl servicePerson;
 
     @Autowired
     Person person;
 
+    //Primer ejercicio realizado
     @PostMapping("/controller2/getPerson")
     public String getPersona() {
         return "La edad de " + person.getName() + " multiplicada por dos 2 es: " + (person.getAge() * 2);
     }
 
+    //Segundo ejercicio realizado
     @GetMapping("/controller2/getCity")
     public String getListCity() {
-
         return servicePerson.writeList();
     }
 }
