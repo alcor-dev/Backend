@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "1326d71b-1131-4bf0-96ec-fe02a5d3a3d8",
+		"name": "block6-person-controllers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24031638"
+	},
+	"item": [
+		{
+			"name": "Add Person By Headers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "name",
+						"value": "Makoto",
+						"type": "text"
+					},
+					{
+						"key": "city",
+						"value": "Tokyo",
+						"type": "text"
+					},
+					{
+						"key": "age",
+						"value": "34",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/controller1/addPerson",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"controller1",
+						"addPerson"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Person Data From Controller1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/controller2/getPerson",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"controller2",
+						"getPerson"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add City From Headers",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "name",
+						"value": "Yharnam",
+						"type": "text"
+					},
+					{
+						"key": "population",
+						"value": "500",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/controller1/addCity",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"controller1",
+						"addCity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get City",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/controller2/getCity",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"controller2",
+						"getCity"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
