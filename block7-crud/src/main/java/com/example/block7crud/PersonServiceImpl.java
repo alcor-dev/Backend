@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 
 //Implementamos el servicio para luego poder inyectarlo en los controladores correspondientes con Autowired
 @Service
@@ -30,6 +32,17 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public Person readPersonById(String id) throws FileNotFoundException {
         return personRepository.findById(id).orElseThrow(() -> new FileNotFoundException("Persona no encontrada"));
+    }
+
+    @Override
+    public Person readPersonByName(String name) throws Exception {
+        List<Person> foundName = new ArrayList<>();
+        personRepository.readPersonByName(name).forEach(person -> {
+            foundName.add(person);
+        });
+
+        Person person = foundName.get(0);
+        return person;
     }
 
     //Método para borrar personas mediante ID

@@ -22,7 +22,7 @@ public class ControllerRead {
     }
 
     @GetMapping("/name/{name}")
-    public String readPersonByName(@PathVariable("name") String name) throws FileNotFoundException {
+    public String readPersonByName(@PathVariable("name") String name) throws Exception {
         Person person = personService.readPersonByName(name);
         return "Nombre: " + person.getName() + " Edad: " + person.getAge() + " Ciudad: " + person.getCity();
     }
