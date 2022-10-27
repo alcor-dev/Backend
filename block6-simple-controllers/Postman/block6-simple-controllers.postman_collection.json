@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "28eb01ee-ba43-4834-a477-1c2833896e70",
+		"name": "block6-simple-controllers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24031638"
+	},
+	"item": [
+		{
+			"name": "Add Person by JSON",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Antonio Banderas\",\r\n    \"age\" : 60,\r\n    \"city\": \"Málaga\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/useradd",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"useradd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Request Using @PathVariable",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/user/Rogue",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"Rogue"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
