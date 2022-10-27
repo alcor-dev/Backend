@@ -34,6 +34,7 @@ public class PersonServiceImpl implements PersonService {
         return personRepository.findById(id).orElseThrow(() -> new FileNotFoundException("Persona no encontrada"));
     }
 
+    //Método para la lectura de personas mediante el nombre
     @Override
     public Person readPersonByName(String name) throws Exception {
         List<Person> foundName = new ArrayList<>();
