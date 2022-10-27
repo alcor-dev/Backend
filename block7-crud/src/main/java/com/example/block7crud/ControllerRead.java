@@ -21,9 +21,9 @@ public class ControllerRead {
         return "Nombre: " + person.getName() + " Edad: " + person.getAge() + " Ciudad: " + person.getCity();
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/name/{name}")
     public String readPersonByName(@PathVariable("name") String name) throws FileNotFoundException {
-        Person Person = personService.readPersonName(name);
-        return "Whatever";
+        Person person = personService.readPersonByName(name);
+        return "Nombre: " + person.getName() + " Edad: " + person.getAge() + " Ciudad: " + person.getCity();
     }
 }
