@@ -4,14 +4,15 @@ import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.io.Serializable;
 import java.sql.Date;
 
 @Data
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class PersonDTO implements Serializable {
 
     private String username;

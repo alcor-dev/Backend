@@ -4,13 +4,14 @@ import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.io.Serializable;
 
 @Data
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class StudentDTO implements Serializable {
 
     private int num_hours_week;

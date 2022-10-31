@@ -17,8 +17,9 @@ public class ControllerStudent {
     }
 
     @GetMapping("/{id}")
-    public Student readStudentById(@PathVariable("id") String id, @RequestParam("outputType") String type) throws EntityNotFoundException{
+    public Object readStudentById(@PathVariable("id") String id, @RequestParam("outputType") String type) throws EntityNotFoundException{
         if (type.contentEquals("full")) {
+
 
         }
         return studentService.readStudentById(id);

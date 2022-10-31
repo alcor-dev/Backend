@@ -73,7 +73,7 @@ public class Person implements Serializable {
         } if (this.created_date == null) {
             throw new Exception("La fecha de creación no puede ser nula");
         } else {
-            return false;
+            return true;
         }
     }
 

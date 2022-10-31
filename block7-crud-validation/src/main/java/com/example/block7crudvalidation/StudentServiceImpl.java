@@ -1,16 +1,21 @@
 package com.example.block7crudvalidation;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class StudentServiceImpl implements StudentService{
 
     final List<Student> allStudent = new ArrayList<>();
 
     @Autowired
     StudentRepository studentRepository;
+
+    @Autowired
+    PersonRepository personRepository;
 
     @Override
     public String createStudent(Student student) {
@@ -31,13 +36,14 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public Student readStudentByName(String name) throws EntityNotFoundException {
-        List<Student> foundName = new ArrayList<>();
-        studentRepository.readPersonByName(name).forEach(student -> {
-            foundName.add(student);
-        });
-
-        Student student = foundName.get(0);
-        return student;
+//        List<Student> foundName = new ArrayList<>();
+//        studentRepository.readPersonByName(name).forEach(student -> {
+//            foundName.add(student);
+//        });
+//
+//        Student student = foundName.get(0);
+//        return student;
+        return null;
     }
 
     @Override

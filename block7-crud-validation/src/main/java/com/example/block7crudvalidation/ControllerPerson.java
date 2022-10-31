@@ -15,13 +15,13 @@ public class ControllerPerson {
 
     @PostMapping("/add")
     public String addPerson(@RequestBody Person person) throws Exception {
+
         if(person.checkData()) {
             personService.createPerson(person);
             return "Añadida persona: " + person.getName().toUpperCase();
         } else {
             throw new UnprocessableEntityException();
         }
-
     }
 
     @GetMapping("/{id}")
