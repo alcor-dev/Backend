@@ -19,23 +19,33 @@ public class ControllerPerson {
             personService.createPerson(person);
             return "Añadida persona: " + person.getName().toUpperCase();
         } else {
-            return "El objeto persona estaba incompleto";
+            throw new UnprocessableEntityException();
         }
 
     }
 
     @GetMapping("/{id}")
-    public Person readPersonById(@PathVariable("id") String id) throws FileNotFoundException {
+    public Person readPersonById(@PathVariable("id") String id) throws EntityNotFoundException {
         return personService.readPersonById(id);
     }
 
     @GetMapping("/{name}")
-    public Person readPersonByName(@PathVariable("name") String name) throws Exception{
+    public Person readPersonByName(@PathVariable("name") String name) throws EntityNotFoundException{
         return personService.readPersonByName(name);
     }
 
     @GetMapping("/all")
     public List<Person> readAllPerson() {
         return personService.readEveryPerson();
+    }
+
+    @PutMapping("/update")
+    public String updatePerson(@RequestBody Person person) throws Exception {
+        if (person.checkData()){
+            personService.updatePerson(person);
+            return "La persona: " + person.getName() + " ha sido actualizada";
+        } else {
+            throw new UnprocessableEntityException();
+        }
     }
 }

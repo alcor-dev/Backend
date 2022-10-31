@@ -20,7 +20,7 @@ public class Person implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id_persona;
+    private int id_person;
 
     @Column
     private String username;

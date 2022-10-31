@@ -6,7 +6,9 @@ import java.util.List;
 public interface PersonService {
 
     String createPerson(Person person);
-    Person readPersonById(String id) throws FileNotFoundException;
-    Person readPersonByName(String name) throws Exception;
+    Person readPersonById(String id) throws EntityNotFoundException;
+    Person readPersonByName(String name) throws EntityNotFoundException;
+    String updatePerson(Person person);
+    String deletePerson(String id);
     List<Person> readEveryPerson();
 }

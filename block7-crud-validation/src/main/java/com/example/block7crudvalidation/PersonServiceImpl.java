@@ -22,12 +22,12 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Person readPersonById(String id) throws FileNotFoundException {
-        return personRepository.findById(id).orElseThrow(() -> new FileNotFoundException());
+    public Person readPersonById(String id) throws EntityNotFoundException {
+        return personRepository.findById(id).orElseThrow(() -> new EntityNotFoundException());
     }
 
     @Override
-    public Person readPersonByName(String name) throws Exception {
+    public Person readPersonByName(String name) throws EntityNotFoundException {
         List<Person> foundName = new ArrayList<>();
         personRepository.readPersonByName(name).forEach(person -> {
             foundName.add(person);
@@ -38,8 +38,19 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public List<Person> readEveryPerson() {
+    public String updatePerson(Person person) {
+        personRepository.save(person);
+        return "La persona: " + person.getName().toUpperCase() + " ha sido actualizada";
+    }
 
+    @Override
+    public String deletePerson(String id){
+        personRepository.deleteById(id);
+        return "La persona con ID: " + id + "ha sido eliminada";
+    }
+
+    @Override
+    public List<Person> readEveryPerson() {
        personRepository.findAll().forEach(person -> allPerson.add(person));
        return allPerson;
     }
