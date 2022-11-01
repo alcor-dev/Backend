@@ -17,7 +17,7 @@ public class Student implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private String id_student;
+    private int id_student;
 
     @OneToOne
     @JoinColumn(name = "id_person")

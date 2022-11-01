@@ -35,26 +35,14 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public Student readStudentByName(String name) throws EntityNotFoundException {
-//        List<Student> foundName = new ArrayList<>();
-//        studentRepository.readPersonByName(name).forEach(student -> {
-//            foundName.add(student);
-//        });
-//
-//        Student student = foundName.get(0);
-//        return student;
-        return null;
-    }
-
-    @Override
     public String deleteStudent(String id) {
         studentRepository.deleteById(id);
         return "Eliminado el estudiante de id: " + id;
     }
 
-    @Override
-    public List<Student> readEveryStudent() {
-        studentRepository.findAll().forEach(person -> allStudent.add(person));
-        return allStudent;
-    }
+//    @Override
+//    public List<Student> readEveryStudent() {
+//        studentRepository.readAllStudents().forEach(student -> allStudent.add(student));
+//        return allStudent;
+//    }
 }

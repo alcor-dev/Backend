@@ -15,7 +15,6 @@ public class ControllerPerson {
 
     @PostMapping("/add")
     public String addPerson(@RequestBody Person person) throws Exception {
-
         if(person.checkData()) {
             personService.createPerson(person);
             return "Añadida persona: " + person.getName().toUpperCase();
@@ -24,12 +23,12 @@ public class ControllerPerson {
         }
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public Person readPersonById(@PathVariable("id") String id) throws EntityNotFoundException {
         return personService.readPersonById(id);
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/name/{name}")
     public Person readPersonByName(@PathVariable("name") String name) throws EntityNotFoundException{
         return personService.readPersonByName(name);
     }

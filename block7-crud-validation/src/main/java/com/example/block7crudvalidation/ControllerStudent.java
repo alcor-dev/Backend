@@ -3,6 +3,8 @@ package com.example.block7crudvalidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/student")
 public class ControllerStudent {
@@ -13,20 +15,23 @@ public class ControllerStudent {
     @PostMapping("/add")
     public String addStudent(@RequestBody Student student) throws Exception {
         studentService.createStudent(student);
-        return "Añadido estudiante: " + student.getId_student();
+        return "Añadido estudiante: " /*+ student.getId_student()*/;
     }
 
     @GetMapping("/{id}")
-    public Object readStudentById(@PathVariable("id") String id, @RequestParam("outputType") String type) throws EntityNotFoundException{
+    public Student readStudentById(@PathVariable("id") String id, @RequestParam(name = "outputType", defaultValue = "simple") String type) throws EntityNotFoundException{
         if (type.contentEquals("full")) {
+            return null;
 
+        } else if (type.contentEquals("simple")) {
 
         }
-        return studentService.readStudentById(id);
+
+        return null;
     }
 
-    @GetMapping("/{name}")
-    public Student readStudentByName(@PathVariable("name") String name) throws EntityNotFoundException{
-        return studentService.readStudentByName(name);
-    }
+//    @GetMapping("/all")
+//    public List<Student> readAllStudents() throws EntityNotFoundException{
+//        return studentService.readEveryStudent();
+//    }
 }

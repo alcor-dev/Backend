@@ -1,5 +1,6 @@
 package com.example.block7crudvalidation;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,6 +18,7 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Person implements Serializable {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
