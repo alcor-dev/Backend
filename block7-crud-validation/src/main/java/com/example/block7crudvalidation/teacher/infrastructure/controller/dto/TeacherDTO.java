@@ -12,7 +12,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TeacherDTO implements Serializable {
-    
+
     private String comments;
     private String branch;
 
