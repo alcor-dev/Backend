@@ -3,6 +3,8 @@ package com.example.block7crudvalidation.teacher.infrastructure.controller;
 import com.example.block7crudvalidation.exceptions.EntityNotFoundException;
 import com.example.block7crudvalidation.teacher.application.TeacherService;
 import com.example.block7crudvalidation.teacher.domain.Teacher;
+import com.example.block7crudvalidation.teacher.infrastructure.controller.dto.FullTeacherDTO;
+import com.example.block7crudvalidation.teacher.infrastructure.controller.dto.TeacherDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,8 +22,17 @@ public class ControllerTeacher {
     }
 
     @GetMapping("/{id}")
-    public Teacher readTeacherById(@PathVariable("id") String id) throws EntityNotFoundException {
-        return teacherService.readTeacherById(id);
+    public TeacherDTO readTeacherById(@PathVariable("id") String id, @RequestParam(name = "outputType", defaultValue = "simple") String type) throws EntityNotFoundException {
+        Teacher teacher = teacherService.readTeacherById(id);
+        if (type.equals("full")) {
+            FullTeacherDTO fullTeacherDTO = new FullTeacherDTO();
+            fullTeacherDTO.getFullTeacherInfo(teacher);
+            return fullTeacherDTO ;
+        } else {
+            TeacherDTO teacherDTO = new TeacherDTO();
+            teacherDTO.getTeacherSimpleInfo(teacher);
+            return teacherDTO;
+        }
     }
 
     @PutMapping("/update")
