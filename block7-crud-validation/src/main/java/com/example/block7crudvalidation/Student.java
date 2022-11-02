@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Data
@@ -19,7 +20,7 @@ public class Student implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id_student;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_person")
     Person person;
 
@@ -29,10 +30,13 @@ public class Student implements Serializable {
     @Column
     private String comments;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_teacher")
     Teacher teacher;
 
     @Column
     private String branch;
+
+//    @OneToMany
+//    private List<StudentSubject> subjects;
 }

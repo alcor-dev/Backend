@@ -19,7 +19,7 @@ public class Teacher implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id_teacher;
 
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_person")
     Person person;
 
