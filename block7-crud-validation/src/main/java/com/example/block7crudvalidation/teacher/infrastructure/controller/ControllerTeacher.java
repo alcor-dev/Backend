@@ -1,5 +1,8 @@
-package com.example.block7crudvalidation;
+package com.example.block7crudvalidation.teacher.infrastructure.controller;
 
+import com.example.block7crudvalidation.exceptions.EntityNotFoundException;
+import com.example.block7crudvalidation.teacher.application.TeacherService;
+import com.example.block7crudvalidation.teacher.domain.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

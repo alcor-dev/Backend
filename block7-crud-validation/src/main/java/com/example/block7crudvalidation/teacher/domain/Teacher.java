@@ -1,42 +1,31 @@
-package com.example.block7crudvalidation;
+package com.example.block7crudvalidation.teacher.domain;
 
+import com.example.block7crudvalidation.person.domain.Person;
 import jakarta.persistence.*;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.List;
 
-@Entity
 @Data
+@Entity
+@Table(name = "teacher")
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "student")
-public class Student implements Serializable {
+public class Teacher implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id_student;
+    private int id_teacher;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_person")
     Person person;
 
     @Column
-    private int num_hours_week;
-
-    @Column
     private String comments;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_teacher")
-    Teacher teacher;
 
     @Column
     private String branch;
-
-//    @OneToMany
-//    private List<StudentSubject> subjects;
 }

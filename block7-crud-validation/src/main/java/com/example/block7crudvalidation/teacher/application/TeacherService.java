@@ -1,4 +1,7 @@
-package com.example.block7crudvalidation;
+package com.example.block7crudvalidation.teacher.application;
+
+import com.example.block7crudvalidation.teacher.domain.Teacher;
+import com.example.block7crudvalidation.exceptions.EntityNotFoundException;
 
 public interface TeacherService {
 

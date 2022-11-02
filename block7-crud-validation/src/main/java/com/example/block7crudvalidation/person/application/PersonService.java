@@ -1,6 +1,8 @@
-package com.example.block7crudvalidation;
+package com.example.block7crudvalidation.person.application;
 
-import java.io.FileNotFoundException;
+import com.example.block7crudvalidation.exceptions.EntityNotFoundException;
+import com.example.block7crudvalidation.person.domain.Person;
+
 import java.util.List;
 
 public interface PersonService {

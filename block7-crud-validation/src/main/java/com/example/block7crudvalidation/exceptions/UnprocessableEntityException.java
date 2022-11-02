@@ -1,4 +1,6 @@
-package com.example.block7crudvalidation;
+package com.example.block7crudvalidation.exceptions;
+
+import com.example.block7crudvalidation.CustomError;
 
 import java.util.Calendar;
 

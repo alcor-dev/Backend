@@ -1,5 +1,6 @@
-package com.example.block7crudvalidation;
+package com.example.block7crudvalidation.person.infrastructure.repository;
 
+import com.example.block7crudvalidation.person.domain.Person;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

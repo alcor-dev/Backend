@@ -1,5 +1,8 @@
-package com.example.block7crudvalidation;
+package com.example.block7crudvalidation.teacher.application;
 
+import com.example.block7crudvalidation.teacher.domain.Teacher;
+import com.example.block7crudvalidation.teacher.infrastructure.repository.TeacherRepository;
+import com.example.block7crudvalidation.exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

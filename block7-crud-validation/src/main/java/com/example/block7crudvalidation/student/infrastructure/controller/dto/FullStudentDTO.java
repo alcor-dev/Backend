@@ -1,5 +1,6 @@
-package com.example.block7crudvalidation;
+package com.example.block7crudvalidation.student.infrastructure.controller.dto;
 
+import com.example.block7crudvalidation.student.domain.Student;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,7 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class FullStudentDTO extends Student {
+public class FullStudentDTO extends StudentDTO {
 
     //Parte de Person
 

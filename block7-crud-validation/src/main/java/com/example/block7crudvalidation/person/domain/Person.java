@@ -1,4 +1,4 @@
-package com.example.block7crudvalidation;
+package com.example.block7crudvalidation.person.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -78,7 +78,4 @@ public class Person implements Serializable {
             return true;
         }
     }
-
-
-
 }

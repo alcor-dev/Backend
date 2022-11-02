@@ -1,21 +1,19 @@
-package com.example.block7crudvalidation;
+package com.example.block7crudvalidation.student.application;
+
+import com.example.block7crudvalidation.student.domain.Student;
+import com.example.block7crudvalidation.student.infrastructure.repository.StudentRepository;
+import com.example.block7crudvalidation.exceptions.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Service
 public class StudentServiceImpl implements StudentService{
 
-    final List<Student> allStudent = new ArrayList<>();
+//    final List<Student> allStudent = new ArrayList<>();
 
     @Autowired
     StudentRepository studentRepository;
-
-    @Autowired
-    PersonRepository personRepository;
 
     @Override
     public String createStudent(Student student) {
@@ -30,19 +28,12 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public Student readStudentById(String id) throws EntityNotFoundException{
+    public Student readStudentById(String id) throws EntityNotFoundException {
         return studentRepository.findById(id).orElseThrow(() -> new EntityNotFoundException());
     }
 
     @Override
-    public String deleteStudent(String id) {
+    public void deleteStudent(String id) {
         studentRepository.deleteById(id);
-        return "Eliminado el estudiante de id: " + id;
     }
-
-//    @Override
-//    public List<Student> readEveryStudent() {
-//        studentRepository.readAllStudents().forEach(student -> allStudent.add(student));
-//        return allStudent;
-//    }
 }
