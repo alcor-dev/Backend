@@ -1,4 +1,4 @@
-package com.example.block7crudvalidation;
+package com.example.block7crudvalidation.studentsubject.domain;
 
 import com.example.block7crudvalidation.student.domain.Student;
 import jakarta.persistence.*;
@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "student_subject")
+@Table(name = "subject")
 @AllArgsConstructor
 @NoArgsConstructor
 public class StudentSubject implements Serializable {
@@ -20,7 +20,7 @@ public class StudentSubject implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private String id_subject;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_student")
     Student student;
 
