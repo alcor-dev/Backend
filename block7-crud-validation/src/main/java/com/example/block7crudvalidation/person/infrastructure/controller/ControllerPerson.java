@@ -8,7 +8,9 @@ import com.example.block7crudvalidation.person.infrastructure.controller.dto.Per
 import com.example.block7crudvalidation.person.infrastructure.controller.dto.StudentPersonDTO;
 import com.example.block7crudvalidation.person.infrastructure.controller.dto.TeacherPersonDTO;
 import com.example.block7crudvalidation.student.application.StudentServiceImpl;
+import com.example.block7crudvalidation.student.domain.Student;
 import com.example.block7crudvalidation.teacher.application.TeacherServiceImpl;
+import com.example.block7crudvalidation.teacher.domain.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,23 +39,42 @@ public class ControllerPerson {
         }
     }
 
+    //Filtro para mostrar datos según el tipo de dato que llegue y si está asociado a profesor o a alumno
     @GetMapping("/id/{id}")
     public PersonDTO readPersonById(@PathVariable("id") String id, @RequestParam(name = "outputType", defaultValue = "simple") String type ) throws EntityNotFoundException {
-        Person person = personService.readPersonById(id);
 
-        if (type.equals("full") && (person.getId_person() == studentService.readStudentById(id).getId_student())) {
-            StudentPersonDTO personStudentDTO = new StudentPersonDTO();
-            personStudentDTO.getStudentPersonInfo(studentService.readStudentById(id));
-            return personStudentDTO;
+        if (type.equals("full")) {
 
-        } else if (type.equals("full") &&(person.getId_person() == teacherService.readTeacherById(id).getId_teacher())) {
-            TeacherPersonDTO teacherPersonDTO = new TeacherPersonDTO();
-            teacherPersonDTO.getTeacherPersonInfo(teacherService.readTeacherById(id));
-            return teacherPersonDTO;
+            List<Student> listStudent = studentService.readEveryStudent();
+            List<Teacher> listTeacher = teacherService.readEveryTeacher();
+
+            //Si la id_person está dentro de alguien de la clase Student entonces...
+            if (studentService.filterByID(listStudent, id)) {
+                StudentPersonDTO studentPersonDTO = new StudentPersonDTO();
+                Student student = new Student();
+                student = studentService.getById(listStudent, id);
+                studentPersonDTO.getStudentPersonInfo(student);
+                return studentPersonDTO;
+
+            //Si la id_person está dentro de alguien de la clase Teacher entonces...
+            } else if (teacherService.filterByID(listTeacher, id)) {
+                TeacherPersonDTO teacherPersonDTO = new TeacherPersonDTO();
+                Teacher teacher = new Teacher();
+                teacher = teacherService.getById(listTeacher, id);
+                teacherPersonDTO.getTeacherPersonInfo(teacher);
+                return teacherPersonDTO;
+
+            //Si la id_person no está en ninguna de las otras clases, entonces devuelve un Person
+            } else {
+                PersonDTO personDTO = new PersonDTO();
+                personDTO.getPersonInfo(personService.readPersonById(id));
+                return personDTO;
+            }
 
         } else {
+
             PersonDTO personDTO = new PersonDTO();
-            personDTO.getPersonInfo(person);
+            personDTO.getPersonInfo(personService.readPersonById(id));
             return personDTO;
         }
     }

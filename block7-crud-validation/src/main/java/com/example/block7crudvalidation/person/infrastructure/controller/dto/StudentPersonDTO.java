@@ -1,12 +1,7 @@
 package com.example.block7crudvalidation.person.infrastructure.controller.dto;
 
 import com.example.block7crudvalidation.student.domain.Student;
-import com.example.block7crudvalidation.student.infrastructure.controller.dto.FullStudentDTO;
-import com.example.block7crudvalidation.teacher.domain.Teacher;
-import jakarta.persistence.Column;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -44,6 +39,8 @@ public class StudentPersonDTO extends PersonDTO{
 
     //Parámetros de Student
 
+    private int id_student;
+
     private int num_hours_week;
 
     private String comments;
@@ -52,6 +49,7 @@ public class StudentPersonDTO extends PersonDTO{
 
     public StudentPersonDTO getStudentPersonInfo(Student student) {
         //Parte de Student
+        this.setId_student(student.getId_student());
         this.setNum_hours_week(student.getNum_hours_week());
         this.setComments(student.getComments());
         this.setBranch(student.getBranch());

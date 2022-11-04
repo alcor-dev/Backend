@@ -8,6 +8,8 @@ import com.example.block7crudvalidation.teacher.infrastructure.controller.dto.Te
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/teacher")
 public class ControllerTeacher {
@@ -45,5 +47,10 @@ public class ControllerTeacher {
     public String deleteTeacher(@PathVariable("id") String id) throws EntityNotFoundException {
         teacherService.deleteTeacher(id);
         return "El profesor de ID: " + id + " ha sido borrado";
+    }
+
+    @GetMapping("/all")
+    public List<Teacher> readEveryTeacher() {
+        return teacherService.readEveryTeacher();
     }
 }

@@ -1,11 +1,14 @@
 package com.example.block7crudvalidation.person.infrastructure.repository;
 
 import com.example.block7crudvalidation.person.domain.Person;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface PersonRepository extends CrudRepository<Person, String> {
+@Repository
+public interface PersonRepository extends JpaRepository<Person, String> {
 
     List<Person> readPersonByName(String name);
+
 }

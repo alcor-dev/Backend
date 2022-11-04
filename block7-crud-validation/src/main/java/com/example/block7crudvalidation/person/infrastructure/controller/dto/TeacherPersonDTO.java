@@ -40,6 +40,8 @@ public class TeacherPersonDTO extends PersonDTO {
 
     //Parámetros de Teacher
 
+    private int id_teacher;
+
     private String comments;
 
     private String branch;
@@ -47,6 +49,7 @@ public class TeacherPersonDTO extends PersonDTO {
     public TeacherPersonDTO getTeacherPersonInfo(Teacher teacher) {
 
         //Parte de Student
+        this.setId_teacher(teacher.getId_teacher());
         this.setComments(teacher.getComments());
         this.setBranch(teacher.getBranch());
 

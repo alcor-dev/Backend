@@ -15,8 +15,6 @@ public class PersonServiceImpl implements PersonService {
     @Autowired
     PersonRepository personRepository;
 
-    final List<Person> allPerson = new ArrayList<>();
-
     @Override
     public String createPerson(Person person) {
         personRepository.save(person);
@@ -53,6 +51,7 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public List<Person> readEveryPerson() {
+       List<Person> allPerson = new ArrayList<>();
        personRepository.findAll().forEach(person -> allPerson.add(person));
        return allPerson;
     }
