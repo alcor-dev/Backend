@@ -39,6 +39,12 @@ public class ControllerPerson {
         }
     }
 
+     @PostMapping("/list")
+     public void addList(@RequestBody List<Person> personList) {
+        System.out.println("Añadiendo " + personList.size() + " personas");
+        personList.stream().forEach(person -> personService.createPerson(person));
+     }
+
     //Filtro para mostrar datos según el tipo de dato que llegue y si está asociado a profesor o a alumno
     @GetMapping("/id/{id}")
     public PersonDTO readPersonById(@PathVariable("id") String id, @RequestParam(name = "outputType", defaultValue = "simple") String type ) throws EntityNotFoundException {

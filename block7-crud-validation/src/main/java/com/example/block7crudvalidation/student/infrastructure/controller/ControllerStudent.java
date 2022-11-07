@@ -8,6 +8,7 @@ import com.example.block7crudvalidation.student.domain.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -25,6 +26,12 @@ public class ControllerStudent {
         Student studentData = student;
         return "Añadido estudiante: " + studentData.getId_student();
     }
+
+     @PostMapping("/list")
+     public void addStudentList(@RequestBody List<Student> studentList) {
+        System.out.println("Introduciendo : " + studentList.size() + " personas");
+        studentList.stream().forEach(student -> studentService.createStudent(student));
+     }
 
     @GetMapping("/{id}")
     public StudentDTO readStudentById(@PathVariable("id") String id, @RequestParam(name = "outputType", defaultValue = "simple") String type) throws EntityNotFoundException {

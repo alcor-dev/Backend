@@ -16,10 +16,6 @@ public class StudentServiceImpl implements StudentService{
     @Autowired
     StudentRepository studentRepository;
 
-//    final List<Student> allStudent = new ArrayList<>();
-//    final List<Student> studentResult = new ArrayList<>();
-//    final List<Student> studentRecover= new ArrayList<>();
-
     @Override
     public String createStudent(Student student) {
         studentRepository.save(student);
