@@ -8,6 +8,8 @@ import com.example.block7crudvalidation.student.domain.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 //Permite la creación de varias anotaciones sin necesidad de las anotaciones, como con Autowired
 //@RequiredArgsConstructor
@@ -43,5 +45,10 @@ public class ControllerStudent {
     public String deleteStudentById(@PathVariable("id") String id) throws EntityNotFoundException{
         studentService.deleteStudent(id);
         return "El alumno de ID: " + id + " ha sido eliminado";
+    }
+
+    @GetMapping("/all")
+    public List<Student> readAllStudents() {
+        return studentService.readEveryStudent();
     }
 }
