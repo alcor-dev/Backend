@@ -54,7 +54,7 @@ public class ControllerStudentSubject {
         return subjectsResult;
     }
 
-    @GetMapping("/student/all")
+    @GetMapping("/all")
     public List<StudentSubject> readAllSubjects() {
         List<StudentSubject> listAllSubjects = new ArrayList<>();
         listAllSubjects = studentSubjectService.readEverySubject();
