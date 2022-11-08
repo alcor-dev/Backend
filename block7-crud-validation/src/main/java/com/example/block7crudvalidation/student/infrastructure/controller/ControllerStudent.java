@@ -8,7 +8,6 @@ import com.example.block7crudvalidation.student.domain.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -28,9 +27,10 @@ public class ControllerStudent {
     }
 
      @PostMapping("/list")
-     public void addStudentList(@RequestBody List<Student> studentList) {
+     public String addStudentList(@RequestBody List<Student> studentList) {
         System.out.println("Introduciendo : " + studentList.size() + " personas");
         studentList.stream().forEach(student -> studentService.createStudent(student));
+        return "Introduciendo : " + studentList.size() + " personas";
      }
 
     @GetMapping("/{id}")

@@ -7,8 +7,6 @@ import com.example.block7crudvalidation.studentsubject.domain.StudentSubject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.transform.SourceLocator;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,15 +32,16 @@ public class ControllerStudentSubject {
     }
 
     @PostMapping("/list")
-    public void createSubjectList(@RequestBody List<StudentSubject> subjectList) {
-        System.out.println("Añadiendo: " + subjectList.size() + " asignaturas");
-        subjectList.stream().forEach(subject -> studentSubjectService.createSubjects(subject));
+    public String createSubjectList(@RequestBody List<StudentSubject> subjectList) throws Exception {
+        subjectList.stream().forEach(studentSubject -> studentSubjectService.createSubjects(studentSubject));
+        return "Añadiendo: " + subjectList.size() + " asignaturas";
     }
 
     @DeleteMapping("/list")
     public void deleteSubjectList(@RequestBody List<StudentSubject> subjectList) {
         System.out.println("Eliminando: " + subjectList.size() + " asignaturas");
-        subjectList.stream().forEach(subject -> studentSubjectService.createSubjects(subject));
+        //Editar para borrar usando la ID (Pulir)
+        subjectList.stream().forEach(subject -> studentSubjectService.deleteSubjects(Integer.toString(subject.getId_subject())));
     }
 
     @PutMapping("/modify")

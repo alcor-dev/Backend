@@ -2,7 +2,7 @@ package com.example.block7crudvalidation.studentsubject.domain;
 
 import com.example.block7crudvalidation.student.domain.Student;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -23,7 +24,7 @@ public class StudentSubject implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id_subject;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne/*(fetch = FetchType.EAGER)*/
     @JoinColumn(name = "id_student")
     Student student;
 

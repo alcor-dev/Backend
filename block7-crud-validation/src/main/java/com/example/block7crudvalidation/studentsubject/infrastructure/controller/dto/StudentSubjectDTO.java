@@ -1,9 +1,8 @@
 package com.example.block7crudvalidation.studentsubject.infrastructure.controller.dto;
 
-import com.example.block7crudvalidation.student.domain.Student;
+
 import com.example.block7crudvalidation.studentsubject.domain.StudentSubject;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

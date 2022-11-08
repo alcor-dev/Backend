@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Block7CrudValidationApplication_8081" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.example.block7crudvalidation.Block7CrudValidationApplication" />
+    <module name="block7-crud-validation" />
+    <option name="PROGRAM_PARAMETERS" value="--server.port=8081" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
