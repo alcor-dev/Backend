@@ -1,0 +1,486 @@
+{
+	"info": {
+		"_postman_id": "1462c5a7-b15e-44b6-8a81-527816170fb5",
+		"name": "block7-crud-validation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24031638"
+	},
+	"item": [
+		{
+			"name": "Person",
+			"item": [
+				{
+					"name": "Add Person1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n    \"username\" : \"sandevistanUser\",\r\n    \"password\" : \"netrunner\",\r\n    \"name\" : \"David\",\r\n    \"surname\" : \"Martinez\",\r\n    \"company_email\" : \"DavidMartinez@bosonit.com\",\r\n    \"personal_email\" : \"DavidMartinez@allChromed.com\",\r\n    \"city\" : \"Night City\",\r\n    \"active\" : true ,\r\n    \"created_date\" : \"2010-10-27\",\r\n    \"image_url\" : \"https://www.image.jpg\",\r\n    \"termination_date\" : \"2076-10-27\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Person2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"netSurfer\",\r\n    \"password\" : \"arasaka4never\",\r\n    \"name\" : \"Lucy\",\r\n    \"surname\" : \"ArasakaKid\",\r\n    \"company_email\" : \"Lucy@bosonit.com\",\r\n    \"personal_email\" : \"Lucy@IKilledSmasher.com\",\r\n    \"city\" : \"Night City\",\r\n    \"active\" : true ,\r\n    \"created_date\" : \"2010-10-27\",\r\n    \"image_url\" : \"https://www.image.jpg\",\r\n    \"termination_date\" : \"2076-10-27\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Person3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"ShotgunMastah\",\r\n    \"password\" : \"shotguns4me\",\r\n    \"name\" : \"Rebecca\",\r\n    \"surname\" : \"Chromechest\",\r\n    \"company_email\" : \"Rebecca@bosonit.com\",\r\n    \"personal_email\" : \"Rebecca@IKilledSmasher.com\",\r\n    \"city\" : \"Night City\",\r\n    \"active\" : true ,\r\n    \"created_date\" : \"2010-10-27\",\r\n    \"image_url\" : \"https://www.image.jpg\",\r\n    \"termination_date\" : \"2076-10-27\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Person4",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"fixerApprentice\",\r\n    \"password\" : \"moustacheLover\",\r\n    \"name\" : \"Falco\",\r\n    \"surname\" : \"Chromaccio\",\r\n    \"company_email\" : \"Falco@bosonit.com\",\r\n    \"personal_email\" : \"Falco@IKilledSmasher.com\",\r\n    \"city\" : \"Night City\",\r\n    \"active\" : true ,\r\n    \"created_date\" : \"2010-10-27\",\r\n    \"image_url\" : \"https://www.image.jpg\",\r\n    \"termination_date\" : \"2076-10-27\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Person5",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"arasakaDestroyer\",\r\n    \"password\" : \"chromeIsMySoul\",\r\n    \"name\" : \"Adam\",\r\n    \"surname\" : \"Smasher\",\r\n    \"company_email\" : \"AdamSmasher@bosonit.com\",\r\n    \"personal_email\" : \"AdamSmasher@IKilledSmasher.com\",\r\n    \"city\" : \"Night City\",\r\n    \"active\" : true ,\r\n    \"created_date\" : \"2010-10-27\",\r\n    \"image_url\" : \"https://www.image.jpg\",\r\n    \"termination_date\" : \"2076-10-27\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Person6",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"teachingQuickhacks\",\r\n    \"password\" : \"IceHacker\",\r\n    \"name\" : \"Kiwi\",\r\n    \"surname\" : \"Chromesteiner\",\r\n    \"company_email\" : \"Kiwi@bosonit.com\",\r\n    \"personal_email\" : \"Kiwi@IKilledSmasher.com\",\r\n    \"city\" : \"Night City\",\r\n    \"active\" : true ,\r\n    \"created_date\" : \"2010-10-27\",\r\n    \"image_url\" : \"https://www.image.jpg\",\r\n    \"termination_date\" : \"2076-10-27\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read ID For Testing",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/subject/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"subject",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Teacher",
+			"item": [
+				{
+					"name": "Add Teacher To An Existing Person",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"person\" : {\r\n        \"id_person\" : 6\r\n    },\r\n    \"comments\" : \"Sandevistan 4ever\",\r\n    \"branch\" : \"Cybersecurity\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/teacher/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"teacher",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Add Student With ID_Person And ID_Teacher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"person\": {\r\n        \"id_person\" : 4\r\n    },\r\n    \"num_hours_week\" : 40,\r\n    \"comments\" : \"Installing Mantis\",\r\n    \"teacher\" : {\r\n        \"id_teacher\" : 1\r\n    } ,        \r\n    \"branch\" : \"IT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/student/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Student With ID_Person And ID_Teacher 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"person\": {\r\n        \"id_person\" : 3\r\n    },\r\n    \"num_hours_week\" : 40,\r\n    \"comments\" : \"Checking QuickHacks\",\r\n    \"teacher\" : {\r\n        \"id_teacher\" : 1\r\n    } ,        \r\n    \"branch\" : \"IT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/student/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subjects",
+			"item": [
+				{
+					"name": "Add Subject1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"student\" : {\r\n        \"id_student\" : 1\r\n    },\r\n    \"subject\" : \"Programacion\",\r\n    \"initial_date\" : \"2077-11-24\",\r\n    \"finish_date\" : \"2078-11-24\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/subject/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"subject",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Subject2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"student\" : {\r\n        \"id_student\" : 1\r\n    },\r\n    \"subject\" : \"Ciberseguridad\",\r\n    \"initial_date\" : \"2077-11-24\",\r\n    \"finish_date\" : \"2078-11-24\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/subject/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"subject",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Subject3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"student\" : {\r\n        \"id_student\" : 2\r\n    },\r\n    \"subject\" : \"Biomecánica\",\r\n    \"initial_date\" : \"2077-11-24\",\r\n    \"finish_date\" : \"2078-11-24\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/subject/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"subject",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "List",
+			"item": [
+				{
+					"name": "Adding Persons By List",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\r\n    \"username\" : \"epicFixer\",\r\n    \"password\" : \"johnnyFan\",\r\n    \"name\" : \"Rogue\",\r\n    \"surname\" : \"Amendiares\",\r\n    \"company_email\" : \"Rogue@bosonit.com\",\r\n    \"personal_email\" : \"Rogue@gotmissionsforyou.com\",\r\n    \"city\" : \"Night City\",\r\n    \"active\" : true ,\r\n    \"created_date\" : \"2010-10-27\",\r\n    \"image_url\" : \"https://www.image.jpg\",\r\n    \"termination_date\" : \"2076-10-27\"\r\n},\r\n{\r\n    \"username\" : \"johnnyRocker\",\r\n    \"password\" : \"pray4chaos\",\r\n    \"name\" : \"Jhonny\",\r\n    \"surname\" : \"Silverhand\",\r\n    \"company_email\" : \"Silverhand@bosonit.com\",\r\n    \"personal_email\" : \"Silverhand@allChromed.com\",\r\n    \"city\" : \"Night City\",\r\n    \"active\" : true ,\r\n    \"created_date\" : \"2010-10-27\",\r\n    \"image_url\" : \"https://www.image.jpg\",\r\n    \"termination_date\" : \"2076-10-27\"\r\n}\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adding Subjects By List",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\r\n    \"student\" : {\r\n        \"id_student\" : 1\r\n    },\r\n    \"subject\" : \"CyberHacking\",\r\n    \"initial_date\" : \"2077-11-24\",\r\n    \"finish_date\" : \"2078-11-24\"\r\n},\r\n{\r\n    \"student\" : {\r\n        \"id_student\" : 2\r\n    },\r\n    \"subject\" : \"Ambiatica\",\r\n    \"initial_date\" : \"2077-11-24\",\r\n    \"finish_date\" : \"2078-11-24\"\r\n}]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/subject/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"subject",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleting Subjects By List",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\r\n    \"id_subject\" : 7\r\n},\r\n{\r\n    \"id_subject\" : 6\r\n}\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/subject/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"subject",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -2,6 +2,7 @@ package com.example.block7crudvalidation.person.infrastructure.controller;
 
 import com.example.block7crudvalidation.exceptions.EntityNotFoundException;
 import com.example.block7crudvalidation.exceptions.UnprocessableEntityException;
+import com.example.block7crudvalidation.feign.FeignServer;
 import com.example.block7crudvalidation.person.domain.Person;
 import com.example.block7crudvalidation.person.application.PersonServiceImpl;
 import com.example.block7crudvalidation.person.infrastructure.controller.dto.PersonDTO;
@@ -11,7 +12,10 @@ import com.example.block7crudvalidation.student.application.StudentServiceImpl;
 import com.example.block7crudvalidation.student.domain.Student;
 import com.example.block7crudvalidation.teacher.application.TeacherServiceImpl;
 import com.example.block7crudvalidation.teacher.domain.Teacher;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +32,9 @@ public class ControllerPerson {
 
     @Autowired
     TeacherServiceImpl teacherService;
+
+    @Autowired
+    FeignServer feignServer;
 
     @PostMapping("/add")
     public String addPerson(@RequestBody Person person) throws Exception {
@@ -103,5 +110,11 @@ public class ControllerPerson {
         } else {
             throw new UnprocessableEntityException();
         }
+    }
+
+    //Feign
+    @GetMapping("/teacher/{id}")
+    public ResponseEntity getTeacherFeign(@PathVariable("id") String id) throws EntityNotFoundException {
+        return ResponseEntity.ok(feignServer.findTeacherById(id));
     }
 }
