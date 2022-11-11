@@ -9,8 +9,8 @@ public interface TeacherService {
 
     String createTeacher(Teacher teacher);
     String modifyTeacher(Teacher teacher) throws EntityNotFoundException;
-    Teacher readTeacherById(String id) throws EntityNotFoundException;
-    String deleteTeacher(String id);
+    Teacher readTeacherById(int id) throws EntityNotFoundException;
+    String deleteTeacher(int id);
     List<Teacher> readEveryTeacher();
-    Boolean filterByID(List<Teacher> list, String id);
+    Boolean filterByID(List<Teacher> list, int id);
 }

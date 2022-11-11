@@ -2,11 +2,11 @@ package com.example.block7crudvalidation.teacher.domain;
 
 import com.example.block7crudvalidation.person.domain.Person;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 
 import java.io.Serializable;
 

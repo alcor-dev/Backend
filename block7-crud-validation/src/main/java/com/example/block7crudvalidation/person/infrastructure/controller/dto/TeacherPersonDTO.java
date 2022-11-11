@@ -2,7 +2,7 @@ package com.example.block7crudvalidation.person.infrastructure.controller.dto;
 
 import com.example.block7crudvalidation.student.domain.Student;
 import com.example.block7crudvalidation.teacher.domain.Teacher;
-import jakarta.persistence.Column;
+import javax.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

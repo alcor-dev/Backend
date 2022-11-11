@@ -1,7 +1,6 @@
 package com.example.block7crudvalidation.teacher.infrastructure.controller.dto;
 
 import com.example.block7crudvalidation.teacher.domain.Teacher;
-import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

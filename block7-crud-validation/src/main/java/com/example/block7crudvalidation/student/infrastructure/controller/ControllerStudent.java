@@ -34,7 +34,7 @@ public class ControllerStudent {
      }
 
     @GetMapping("/{id}")
-    public StudentDTO readStudentById(@PathVariable("id") String id, @RequestParam(name = "outputType", defaultValue = "simple") String type) throws EntityNotFoundException {
+    public StudentDTO readStudentById(@PathVariable("id") int id, @RequestParam(name = "outputType", defaultValue = "simple") String type) throws EntityNotFoundException {
         Student student = (Student) studentService.readStudentById(id);
 
         if (type.equals("full")) {
@@ -49,7 +49,7 @@ public class ControllerStudent {
     }
 
     @DeleteMapping("/{id}")
-    public String deleteStudentById(@PathVariable("id") String id) throws EntityNotFoundException{
+    public String deleteStudentById(@PathVariable("id") int id) throws EntityNotFoundException{
         studentService.deleteStudent(id);
         return "El alumno de ID: " + id + " ha sido eliminado";
     }

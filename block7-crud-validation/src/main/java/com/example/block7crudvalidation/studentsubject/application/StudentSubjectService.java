@@ -7,8 +7,8 @@ import java.util.List;
 public interface StudentSubjectService {
 
     String createSubjects(StudentSubject studentSubject);
-    StudentSubject readSubjects(String id) throws Exception;
+    StudentSubject readSubjects(int id) throws Exception;
     String modifySubjects(StudentSubject studentSubject) ;
-    void deleteSubjects(String id);
+    void deleteSubjects(int id);
     List<StudentSubject> readEverySubject();
 }

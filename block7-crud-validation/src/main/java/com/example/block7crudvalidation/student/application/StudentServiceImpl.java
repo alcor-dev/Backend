@@ -29,12 +29,12 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public Student readStudentById(String id) throws EntityNotFoundException {
+    public Student readStudentById(int id) throws EntityNotFoundException {
         return studentRepository.findById(id).orElseThrow(() -> new EntityNotFoundException());
     }
 
     @Override
-    public void deleteStudent(String id) {
+    public void deleteStudent(int id) {
         studentRepository.deleteById(id);
     }
 
@@ -48,17 +48,17 @@ public class StudentServiceImpl implements StudentService{
     //Filtro para buscar dentro de la clase Student un id_person como el requerido
     //Lo usamos a modo de condición para poder usarlo en un IF
     @Override
-    public Boolean filterByID(List<Student> list, String id) {
+    public Boolean filterByID(List<Student> list, int id) {
         List<Student> studentResult = new ArrayList<>();
-        list.stream().filter(Student -> Student.getPerson().getId_person() == Integer.parseInt(id)).forEach(student -> studentResult.add(student));
+        list.stream().filter(Student -> Student.getPerson().getId_person() == id).forEach(student -> studentResult.add(student));
         return (studentResult.size() > 0);
     }
 
     //Una vez pasado el if, devolvemos el Student indicado con la ID exigida
     @Override
-    public Student getById(List<Student> list, String id) {
+    public Student getById(List<Student> list, int id) {
         List<Student> studentRecover= new ArrayList<>();
-        list.stream().filter(Student -> Student.getPerson().getId_person() == Integer.parseInt(id)).forEach(student -> studentRecover.add(student));
+        list.stream().filter(Student -> Student.getPerson().getId_person() == id).forEach(student -> studentRecover.add(student));
         return studentRecover.get(0);
     }
 }

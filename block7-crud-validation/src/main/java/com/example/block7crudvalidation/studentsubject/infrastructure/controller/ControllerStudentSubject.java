@@ -21,7 +21,7 @@ public class ControllerStudentSubject {
     StudentServiceImpl studentService;
 
     @GetMapping("/id/{id}")
-    public StudentSubject readSubject(@PathVariable("id") String id) throws Exception{
+    public StudentSubject readSubject(@PathVariable("id") int id) throws Exception{
         return studentSubjectService.readSubjects(id);
     }
 
@@ -41,7 +41,7 @@ public class ControllerStudentSubject {
     public void deleteSubjectList(@RequestBody List<StudentSubject> subjectList) {
         System.out.println("Eliminando: " + subjectList.size() + " asignaturas");
         //Editar para borrar usando la ID (Pulir)
-        subjectList.stream().forEach(subject -> studentSubjectService.deleteSubjects(Integer.toString(subject.getId_subject())));
+        subjectList.stream().forEach(subject -> studentSubjectService.deleteSubjects(subject.getId_subject()));
     }
 
     @PutMapping("/modify")
@@ -51,19 +51,19 @@ public class ControllerStudentSubject {
     }
 
     @DeleteMapping("/delete/{id}")
-    public String deleteSubject(@PathVariable("id") String id) {
+    public String deleteSubject(@PathVariable("id") int id) {
         studentSubjectService.deleteSubjects(id);
         return "La asignatura de ID: " + id + " ha sido eliminada";
     }
 
     @GetMapping("/student/{id}")
-    public List<StudentSubject> readByStudentId(@PathVariable("id") String studentId) throws Exception {
+    public List<StudentSubject> readByStudentId(@PathVariable("id") int studentId) throws Exception {
         List<StudentSubject> subjectsResult = new ArrayList<>();
         List<StudentSubject> listSubjects;
 
         Student student = studentService.readStudentById(studentId);
         listSubjects = studentSubjectService.readEverySubject();
-        listSubjects.stream().filter(SubjectStudent -> SubjectStudent.getStudent().getId_student() == Integer.parseInt(studentId)).forEach(subject -> subjectsResult.add(subject));
+        listSubjects.stream().filter(SubjectStudent -> SubjectStudent.getStudent().getId_student() == studentId).forEach(subject -> subjectsResult.add(subject));
         return subjectsResult;
     }
 

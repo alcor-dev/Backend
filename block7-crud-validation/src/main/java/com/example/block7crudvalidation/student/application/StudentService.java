@@ -10,9 +10,9 @@ public interface StudentService {
 
     String createStudent(Student student);
     String modifyStudent(Student student) throws EntityNotFoundException;
-    Object readStudentById(String id) throws EntityNotFoundException;
-    void deleteStudent(String id) throws EntityNotFoundException;
+    Object readStudentById(int id) throws EntityNotFoundException;
+    void deleteStudent(int id) throws EntityNotFoundException;
     List<Student> readEveryStudent();
-    Boolean filterByID(List<Student> list, String id);
-    Student getById(List<Student> list, String id);
+    Boolean filterByID(List<Student> list, int id);
+    Student getById(List<Student> list, int id);
 }

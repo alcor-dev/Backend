@@ -3,7 +3,7 @@ package com.example.block7crudvalidation.studentsubject.domain;
 import com.example.block7crudvalidation.student.domain.Student;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

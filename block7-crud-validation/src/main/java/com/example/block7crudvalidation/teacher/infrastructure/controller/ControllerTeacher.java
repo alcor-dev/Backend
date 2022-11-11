@@ -24,7 +24,7 @@ public class ControllerTeacher {
     }
 
     @GetMapping("/{id}")
-    public TeacherDTO readTeacherById(@PathVariable("id") String id, @RequestParam(name = "outputType", defaultValue = "simple") String type) throws EntityNotFoundException {
+    public TeacherDTO readTeacherById(@PathVariable("id") int id, @RequestParam(name = "outputType", defaultValue = "simple") String type) throws EntityNotFoundException {
         Teacher teacher = teacherService.readTeacherById(id);
         if (type.equals("full")) {
             FullTeacherDTO fullTeacherDTO = new FullTeacherDTO();
@@ -44,7 +44,7 @@ public class ControllerTeacher {
     }
 
     @DeleteMapping("/{id}")
-    public String deleteTeacher(@PathVariable("id") String id) throws EntityNotFoundException {
+    public String deleteTeacher(@PathVariable("id") int id) throws EntityNotFoundException {
         teacherService.deleteTeacher(id);
         return "El profesor de ID: " + id + " ha sido borrado";
     }

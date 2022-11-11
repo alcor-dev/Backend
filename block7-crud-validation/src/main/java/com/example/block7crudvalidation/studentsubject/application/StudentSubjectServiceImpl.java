@@ -22,7 +22,7 @@ public class StudentSubjectServiceImpl implements StudentSubjectService{
     }
 
     @Override
-    public StudentSubject readSubjects(String id) throws EntityNotFoundException {
+    public StudentSubject readSubjects(int id) throws EntityNotFoundException {
         return studentSubjectRepository.findById(id).orElseThrow(() -> new EntityNotFoundException());
     }
 
@@ -33,7 +33,7 @@ public class StudentSubjectServiceImpl implements StudentSubjectService{
     }
 
     @Override
-    public void deleteSubjects(String id)  {
+    public void deleteSubjects(int id)  {
         studentSubjectRepository.deleteById(id);
     }
 

@@ -22,7 +22,7 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Person readPersonById(String id) throws EntityNotFoundException {
+    public Person readPersonById(int id) throws EntityNotFoundException {
         return personRepository.findById(id).orElseThrow(() -> new EntityNotFoundException());
     }
 
@@ -44,7 +44,7 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public String deletePerson(String id){
+    public String deletePerson(int id){
         personRepository.deleteById(id);
         return "La persona con ID: " + id + "ha sido eliminada";
     }

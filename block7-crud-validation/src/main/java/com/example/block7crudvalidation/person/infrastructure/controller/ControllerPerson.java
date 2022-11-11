@@ -12,6 +12,7 @@ import com.example.block7crudvalidation.student.application.StudentServiceImpl;
 import com.example.block7crudvalidation.student.domain.Student;
 import com.example.block7crudvalidation.teacher.application.TeacherServiceImpl;
 import com.example.block7crudvalidation.teacher.domain.Teacher;
+import com.example.block7crudvalidation.teacher.infrastructure.controller.dto.TeacherDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -54,7 +55,7 @@ public class ControllerPerson {
 
     //Filtro para mostrar datos según el tipo de dato que llegue y si está asociado a profesor o a alumno
     @GetMapping("/id/{id}")
-    public PersonDTO readPersonById(@PathVariable("id") String id, @RequestParam(name = "outputType", defaultValue = "simple") String type ) throws EntityNotFoundException {
+    public PersonDTO readPersonById(@PathVariable("id") int id, @RequestParam(name = "outputType", defaultValue = "simple") String type ) throws EntityNotFoundException {
 
         if (type.equals("full")) {
 
@@ -114,7 +115,7 @@ public class ControllerPerson {
 
     //Feign
     @GetMapping("/teacher/{id}")
-    public ResponseEntity getTeacherFeign(@PathVariable("id") String id) throws EntityNotFoundException {
-        return ResponseEntity.ok(feignServer.findTeacherById(id));
+    public TeacherDTO readTeacherById(@PathVariable("id") int id, @RequestParam(name = "outputType", defaultValue = "simple") String type){
+        return feignServer.readTeacherById(id);
     }
 }

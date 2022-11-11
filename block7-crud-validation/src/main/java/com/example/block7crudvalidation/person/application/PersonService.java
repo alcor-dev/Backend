@@ -8,10 +8,10 @@ import java.util.List;
 public interface PersonService {
 
     String createPerson(Person person);
-    Person readPersonById(String id) throws EntityNotFoundException;
+    Person readPersonById(int id) throws EntityNotFoundException;
     Person readPersonByName(String name) throws EntityNotFoundException;
     String updatePerson(Person person);
-    String deletePerson(String id);
+    String deletePerson(int id);
     List<Person> readEveryPerson();
 
 }
