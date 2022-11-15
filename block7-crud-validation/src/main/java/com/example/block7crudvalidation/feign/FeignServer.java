@@ -5,12 +5,12 @@ import com.example.block7crudvalidation.teacher.infrastructure.controller.dto.Te
 import org.springframework.cloud.openfeign.FeignClient;
 
 
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 @FeignClient(name = "FeignServer", url = "http://localhost:8081")
 public interface FeignServer {
 
+    //@RequestMapping(method = RequestMethod.GET, value = "/teacher/{id}")
     @GetMapping("/teacher/{id}")
-    TeacherDTO readTeacherById(@PathVariable("id") int id);
+    Teacher readTeacherById(@PathVariable("id") int id);
 }

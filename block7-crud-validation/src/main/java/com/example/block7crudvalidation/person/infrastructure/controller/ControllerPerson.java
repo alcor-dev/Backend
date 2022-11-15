@@ -13,10 +13,7 @@ import com.example.block7crudvalidation.student.domain.Student;
 import com.example.block7crudvalidation.teacher.application.TeacherServiceImpl;
 import com.example.block7crudvalidation.teacher.domain.Teacher;
 import com.example.block7crudvalidation.teacher.infrastructure.controller.dto.TeacherDTO;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -115,7 +112,7 @@ public class ControllerPerson {
 
     //Feign
     @GetMapping("/teacher/{id}")
-    public TeacherDTO readTeacherById(@PathVariable("id") int id, @RequestParam(name = "outputType", defaultValue = "simple") String type){
+    public Teacher readTeacherById(@PathVariable("id") int id, @RequestParam(name = "outputType", defaultValue = "simple") String type){
         return feignServer.readTeacherById(id);
     }
 }
