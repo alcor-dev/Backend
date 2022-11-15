@@ -253,7 +253,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"person\": {\r\n        \"id_person\" : 4\r\n    },\r\n    \"num_hours_week\" : 40,\r\n    \"comments\" : \"Installing Mantis\",\r\n    \"teacher\" : {\r\n        \"id_teacher\" : 1\r\n    } ,        \r\n    \"branch\" : \"IT\"\r\n}",
+							"raw": "{\r\n    \"person\": {\r\n        \"id_person\" : 4\r\n    },\r\n    \"num_hours_week\" : 40,\r\n    \"comments\" : \"Installing Mantis\",\r\n    \"teacher\" : {\r\n        \"id_teacher\" : 7\r\n    } ,        \r\n    \"branch\" : \"IT\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -281,7 +281,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"person\": {\r\n        \"id_person\" : 3\r\n    },\r\n    \"num_hours_week\" : 40,\r\n    \"comments\" : \"Checking QuickHacks\",\r\n    \"teacher\" : {\r\n        \"id_teacher\" : 1\r\n    } ,        \r\n    \"branch\" : \"IT\"\r\n}",
+							"raw": "{\r\n    \"person\": {\r\n        \"id_person\" : 3\r\n    },\r\n    \"num_hours_week\" : 40,\r\n    \"comments\" : \"Checking QuickHacks\",\r\n    \"teacher\" : {\r\n        \"id_teacher\" : 7\r\n    } ,        \r\n    \"branch\" : \"IT\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -314,7 +314,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"student\" : {\r\n        \"id_student\" : 1\r\n    },\r\n    \"subject\" : \"Programacion\",\r\n    \"initial_date\" : \"2077-11-24\",\r\n    \"finish_date\" : \"2078-11-24\"\r\n}",
+							"raw": "{\r\n    \"student\" : {\r\n        \"id_student\" : 8\r\n    },\r\n    \"subject\" : \"Programacion\",\r\n    \"initial_date\" : \"2077-11-24\",\r\n    \"finish_date\" : \"2078-11-24\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -342,7 +342,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"student\" : {\r\n        \"id_student\" : 1\r\n    },\r\n    \"subject\" : \"Ciberseguridad\",\r\n    \"initial_date\" : \"2077-11-24\",\r\n    \"finish_date\" : \"2078-11-24\"\r\n}",
+							"raw": "{\r\n    \"student\" : {\r\n        \"id_student\" : 8\r\n    },\r\n    \"subject\" : \"Ciberseguridad\",\r\n    \"initial_date\" : \"2077-11-24\",\r\n    \"finish_date\" : \"2078-11-24\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -370,7 +370,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"student\" : {\r\n        \"id_student\" : 2\r\n    },\r\n    \"subject\" : \"Biomecánica\",\r\n    \"initial_date\" : \"2077-11-24\",\r\n    \"finish_date\" : \"2078-11-24\"\r\n}",
+							"raw": "{\r\n    \"student\" : {\r\n        \"id_student\" : 9\r\n    },\r\n    \"subject\" : \"Biomecánica\",\r\n    \"initial_date\" : \"2077-11-24\",\r\n    \"finish_date\" : \"2078-11-24\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -431,7 +431,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[{\r\n    \"student\" : {\r\n        \"id_student\" : 1\r\n    },\r\n    \"subject\" : \"CyberHacking\",\r\n    \"initial_date\" : \"2077-11-24\",\r\n    \"finish_date\" : \"2078-11-24\"\r\n},\r\n{\r\n    \"student\" : {\r\n        \"id_student\" : 2\r\n    },\r\n    \"subject\" : \"Ambiatica\",\r\n    \"initial_date\" : \"2077-11-24\",\r\n    \"finish_date\" : \"2078-11-24\"\r\n}]",
+							"raw": "[{\r\n    \"student\" : {\r\n        \"id_student\" : 8\r\n    },\r\n    \"subject\" : \"CyberHacking\",\r\n    \"initial_date\" : \"2077-11-24\",\r\n    \"finish_date\" : \"2078-11-24\"\r\n},\r\n{\r\n    \"student\" : {\r\n        \"id_student\" : 9\r\n    },\r\n    \"subject\" : \"Ambiatica\",\r\n    \"initial_date\" : \"2077-11-24\",\r\n    \"finish_date\" : \"2078-11-24\"\r\n}]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -459,7 +459,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[{\r\n    \"id_subject\" : 7\r\n},\r\n{\r\n    \"id_subject\" : 6\r\n}\r\n]",
+							"raw": "[{\r\n    \"id_subject\" : 16\r\n},\r\n{\r\n    \"id_subject\" : 15\r\n}\r\n]",
 							"options": {
 								"raw": {
 									"language": "json"
