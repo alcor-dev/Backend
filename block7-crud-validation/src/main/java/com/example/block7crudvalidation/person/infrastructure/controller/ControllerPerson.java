@@ -112,7 +112,9 @@ public class ControllerPerson {
 
     //Feign
     @GetMapping("/teacher/{id}")
-    public Teacher readTeacherById(@PathVariable("id") int id, @RequestParam(name = "outputType", defaultValue = "simple") String type){
-        return feignServer.readTeacherById(id);
+    public TeacherDTO readTeacherById(@PathVariable("id") int id, @RequestParam(name = "outputType", defaultValue = "simple") String type){
+        TeacherDTO teacherDTO = new TeacherDTO();
+        teacherDTO.getTeacherSimpleInfo(feignServer.readTeacherById(id));
+        return teacherDTO;
     }
 }
