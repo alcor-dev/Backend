@@ -1,0 +1,20 @@
+//Initiate the container
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=contrasena -e POSTGRES_USER=postgres postgres:latest
+
+//Creating the network
+docker network create mynetwork
+
+//This not only initiates the container but also gives the container a name we chose, and we can append our program to the network we created earlier
+//The -d parameter allows us to keep using the console while the container is running in the background
+docker run --network mynetwork --name postgresTest -p 5432:5432 -e POSTGRES_PASSWORD=contrasena -e POSTGRES_USER=postgres -d postgres:latest
+
+//Initiates the dockerapp and adds it to the network we previously made
+docker run --name dockerapp --network mynetwork -p 8080:8080 dockerapp:1
+
+//Connect from the terminal to the database
+psql -U postgres -W
+
+//Create Database
+Create Database test
+
+//Some of the internal things weren't right from the start so we used some environment variables to changed that easier

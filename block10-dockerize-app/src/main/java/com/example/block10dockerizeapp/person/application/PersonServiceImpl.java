@@ -21,7 +21,7 @@ public class PersonServiceImpl implements PersonService{
     }
 
     @Override
-    public PersonDTO readPersonById(String id) throws Exception {
+    public PersonDTO readPersonById(Integer id) throws Exception {
         //Keeping controllers cleaner by doing all the operations within the Service methods
         PersonDTO personDTO = new PersonDTO();
         Person person = personRepository.findById(id).orElseThrow(() -> new EntityNotFoundException());
@@ -36,7 +36,7 @@ public class PersonServiceImpl implements PersonService{
     }
 
     @Override
-    public void deletePerson(String id) {
+    public void deletePerson(Integer id) {
         personRepository.deleteById(id);
     }
 }

@@ -22,7 +22,7 @@ public class ControllerPerson {
     }
 
     @GetMapping("/person/{id}")
-    public PersonDTO readPersonById(@PathVariable("id") String id) throws Exception {
+    public PersonDTO readPersonById(@PathVariable("id") Integer id) throws Exception {
          return personService.readPersonById(id);
     }
 
@@ -32,7 +32,7 @@ public class ControllerPerson {
     }
 
     @DeleteMapping("/person/{id}")
-    public void deletePersonById(@PathVariable("id") String id) throws Exception {
+    public void deletePersonById(@PathVariable("id") Integer id) throws Exception {
         personService.deletePerson(id);
     }
 

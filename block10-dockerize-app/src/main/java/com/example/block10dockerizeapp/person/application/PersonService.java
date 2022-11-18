@@ -7,7 +7,7 @@ import com.example.block10dockerizeapp.person.infrastructure.controller.dto.Pers
 public interface PersonService {
 
     void createPerson(Person person);
-    PersonDTO readPersonById(String id) throws Exception;
+    PersonDTO readPersonById(Integer id) throws Exception;
     void updatePerson(Person person);
-    void deletePerson(String id);
+    void deletePerson(Integer id);
 }

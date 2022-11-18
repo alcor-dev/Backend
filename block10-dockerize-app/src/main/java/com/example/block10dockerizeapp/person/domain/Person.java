@@ -19,7 +19,7 @@ public class Person implements Serializable {
 
     @Id
     @GeneratedValue
-    private int idPerson;
+    private Integer idPerson;
 
     @Column
     private int age;
