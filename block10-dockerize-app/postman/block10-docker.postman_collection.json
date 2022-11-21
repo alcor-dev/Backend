@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "8d21ffba-1248-4c6d-9dfd-cd502597fe20",
+		"name": "block10-docker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24031638"
+	},
+	"item": [
+		{
+			"name": "Add person 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"age\" : 10000,\r\n    \"city\" : \"Azeroth\",\r\n    \"name\" : \"Illidan\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/person/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add person 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"age\" : 25,\r\n    \"city\" : \"Azeroth\",\r\n    \"name\" : \"Jaina\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/person/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add person 3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"age\" : 50,\r\n    \"city\" : \"Azeroth\",\r\n    \"name\" : \"Varian\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/person/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add person 4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"age\" : 10000,\r\n    \"city\" : \"Azeroth\",\r\n    \"name\" : \"Anduin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/person/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get person 1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/person/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
