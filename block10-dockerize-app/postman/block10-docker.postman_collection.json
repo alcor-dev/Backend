@@ -7,116 +7,149 @@
 	},
 	"item": [
 		{
-			"name": "Add person 1",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"age\" : 10000,\r\n    \"city\" : \"Azeroth\",\r\n    \"name\" : \"Illidan\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Person",
+			"item": [
+				{
+					"name": "Add person 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"age\" : 10000,\r\n    \"city\" : \"Azeroth\",\r\n    \"name\" : \"Illidan\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/person/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"person",
+								"add"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:8080/person/add",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"person",
-						"add"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Add person 2",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"age\" : 25,\r\n    \"city\" : \"Azeroth\",\r\n    \"name\" : \"Jaina\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "Add person 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"age\" : 25,\r\n    \"city\" : \"Azeroth\",\r\n    \"name\" : \"Jaina\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/person/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"person",
+								"add"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:8080/person/add",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"person",
-						"add"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Add person 3",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"age\" : 50,\r\n    \"city\" : \"Azeroth\",\r\n    \"name\" : \"Varian\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "Add person 3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"age\" : 50,\r\n    \"city\" : \"Azeroth\",\r\n    \"name\" : \"Varian\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/person/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"person",
+								"add"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:8080/person/add",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"person",
-						"add"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Add person 4",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"age\" : 10000,\r\n    \"city\" : \"Azeroth\",\r\n    \"name\" : \"Anduin\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "Add person 4",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"age\" : 10000,\r\n    \"city\" : \"Azeroth\",\r\n    \"name\" : \"Anduin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/person/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"person",
+								"add"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:8080/person/add",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"person",
-						"add"
-					]
+				{
+					"name": "Add person 5",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"age\" : 10000,\r\n    \"city\" : \"Azeroth\",\r\n    \"name\" : \"Anduin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/person/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"person",
+								"add"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
 			"name": "Get person 1",
