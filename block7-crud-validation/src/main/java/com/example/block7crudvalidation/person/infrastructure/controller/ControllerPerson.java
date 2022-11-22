@@ -34,6 +34,8 @@ public class ControllerPerson {
     @Autowired
     FeignServer feignServer;
 
+
+    @CrossOrigin(origins = "https://cdpn.io")
     @PostMapping("/add")
     public String addPerson(@RequestBody Person person) throws Exception {
         if(person.checkData()) {
@@ -95,6 +97,7 @@ public class ControllerPerson {
         return personService.readPersonByName(name);
     }
 
+    @CrossOrigin(origins = "https://cdpn.io")
     @GetMapping("/all")
     public List<Person> readAllPerson() {
         return personService.readEveryPerson();
