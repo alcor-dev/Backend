@@ -1,7 +1,7 @@
 package com.example.block7crudvalidation.person.application;
 
 import com.example.block7crudvalidation.exceptions.EntityNotFoundException;
-import com.example.block7crudvalidation.person.domain.Person;
+import com.example.block7crudvalidation.person.infrastructure.controller.domain.Person;
 
 import java.util.List;
 

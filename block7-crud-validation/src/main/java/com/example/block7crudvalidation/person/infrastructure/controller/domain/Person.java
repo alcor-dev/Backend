@@ -1,4 +1,4 @@
-package com.example.block7crudvalidation.person.domain;
+package com.example.block7crudvalidation.person.infrastructure.controller.domain;
 
 import javax.persistence.*;
 import lombok.AllArgsConstructor;

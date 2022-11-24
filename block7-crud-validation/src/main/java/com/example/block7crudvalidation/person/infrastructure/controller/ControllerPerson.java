@@ -3,7 +3,7 @@ package com.example.block7crudvalidation.person.infrastructure.controller;
 import com.example.block7crudvalidation.exceptions.EntityNotFoundException;
 import com.example.block7crudvalidation.exceptions.UnprocessableEntityException;
 import com.example.block7crudvalidation.feign.FeignServer;
-import com.example.block7crudvalidation.person.domain.Person;
+import com.example.block7crudvalidation.person.infrastructure.controller.domain.Person;
 import com.example.block7crudvalidation.person.application.PersonServiceImpl;
 import com.example.block7crudvalidation.person.infrastructure.controller.dto.PersonDTO;
 import com.example.block7crudvalidation.person.infrastructure.controller.dto.StudentPersonDTO;
@@ -35,6 +35,9 @@ public class ControllerPerson {
     FeignServer feignServer;
 
 
+    //La etiqueta @CrossOrigin nos permite que se acepten conexiones desde una dirección o direcciones que le son
+    //especificadas dentro de esta, así pues, podemos controlar el acceso externo desde varios puntos como, por
+    //endpoints individuales, clases, programas enteros...
     @CrossOrigin(origins = "https://cdpn.io")
     @PostMapping("/add")
     public String addPerson(@RequestBody Person person) throws Exception {

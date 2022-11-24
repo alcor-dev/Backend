@@ -1,6 +1,6 @@
 package com.example.block7crudvalidation.teacher.domain;
 
-import com.example.block7crudvalidation.person.domain.Person;
+import com.example.block7crudvalidation.person.infrastructure.controller.domain.Person;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import lombok.AllArgsConstructor;
 import lombok.Data;
