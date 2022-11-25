@@ -47,6 +47,9 @@ public class FileController {
          return fileService.readFile(fileId);
     }
 
+    //This method allows us to download a file in two different ways
+    //If we specified a directory as an argument, it will override the default directory
+    //If not, then the default directory will be the one used instead
     @GetMapping("/download/id/{id}")
     public void downloadFileId(@PathVariable("id") int fileId) throws IOException {
         //Here we will get the list of the non optional arguments
