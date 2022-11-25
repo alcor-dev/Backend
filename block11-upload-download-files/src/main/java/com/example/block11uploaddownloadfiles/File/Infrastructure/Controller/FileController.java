@@ -3,6 +3,7 @@ package com.example.block11uploaddownloadfiles.File.Infrastructure.Controller;
 import com.example.block11uploaddownloadfiles.File.Application.FileServiceImpl;
 import com.example.block11uploaddownloadfiles.File.Domain.File;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.ApplicationArguments;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -22,6 +23,9 @@ import java.util.List;
 @RestController
 @RequestMapping
 public class FileController {
+
+    @Autowired
+    ApplicationArguments applicationArguments;
 
     @Autowired
     FileServiceImpl fileService;
@@ -45,20 +49,59 @@ public class FileController {
 
     @GetMapping("/download/id/{id}")
     public void downloadFileId(@PathVariable("id") int fileId) throws IOException {
+        //Here we will get the list of the non optional arguments
+        List<String> pathArgs = applicationArguments.getNonOptionArgs();
         String pathDownload = "downloads/";
+        System.out.println("PathArgs size is : " + pathArgs.size());
+
+        //If there isn't any non optional argument then the list size should be zero
+        //If not it will be greater than zero and then the path will be changed
+        if (pathArgs.size() > 0){
+            pathDownload = pathArgs.get(0);
+        }
         File recoveredFile = fileService.readFile(fileId);
+        //Here we can use some concatenation to mix the name of the file and the path we wish to use
         Path path = Paths.get(pathDownload + recoveredFile.getFilename());
-        Files.write(path, recoveredFile.getData());
-        System.out.println("File has been written successfully");
+        if (Files.exists(path)) {
+            //If the path already exists, then it will go and write over the directory
+            Files.write(path, recoveredFile.getData());
+            System.out.println("File has been written successfully");
+        } else {
+            //In case the path isn't created it will be so gentle it'll do so for us and then write the file
+            //How courteous of the program, to be so well educated *takes a sip of tea*
+            Files.createDirectories(Paths.get(pathDownload));
+            Files.write(path, recoveredFile.getData());
+            System.out.println("File has been written successfully");
+        }
+
     }
 
     @GetMapping("/download/name/{name}")
     public void downloadFileName(@PathVariable("name") String name) throws IOException {
+        //Here we will get the list of the non optional arguments
+        List<String> pathArgs = applicationArguments.getNonOptionArgs();
         String pathDownload = "downloads/";
+        System.out.println("PathArgs size is : " + pathArgs.size());
+
+        //If there isn't any non optional argument then the list size should be zero
+        //If not it will be greater than zero and then the path will be changed
+        if (pathArgs.size() > 0){
+            pathDownload = pathArgs.get(0);
+        }
         File recoveredFile = fileService.readFileByName(name);
+        //Here we can use some concatenation to mix the name of the file and the path we wish to use
         Path path = Paths.get(pathDownload + recoveredFile.getFilename());
-        Files.write(path, recoveredFile.getData());
-        System.out.println("File has been written successfully");
+        if (Files.exists(path)) {
+            //If the path already exists, then it will go and write over the directory
+            Files.write(path, recoveredFile.getData());
+            System.out.println("File has been written successfully");
+        } else {
+            //In case the path isn't created it will be so gentle it'll do so for us and then write the file
+            //How courteous of the program, to be so well educated *takes a sip of tea*
+            Files.createDirectories(Paths.get(pathDownload));
+            Files.write(path, recoveredFile.getData());
+            System.out.println("File has been written successfully");
+        }
     }
 
     @GetMapping("/read/all")
