@@ -11,8 +11,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.NoSuchFileException;
+import java.util.List;
 
 @RestController
 @RequestMapping
@@ -28,6 +30,7 @@ public class FileController {
         file.addDate();
         file.setFilename(image.getOriginalFilename());
         file.setData(image.getBytes());
+        file.setType(image.getContentType());
         fileService.createFile(file);
     }
 
@@ -37,9 +40,10 @@ public class FileController {
          return fileService.readFile(fileId);
     }
 
-    @GetMapping("/download/{id}")
-    public ResponseEntity downloadFileId(@PathVariable("id") int fileId) {
+    @GetMapping("/download/id/{id}")
+    public ResponseEntity downloadFileId(@PathVariable("id") int fileId) throws IOException {
         File file = fileService.readFile(fileId);
+
         if (file != null) {
             return ResponseEntity.ok().contentType(MediaType.parseMediaType("multipart/form-data"))
                     .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename= " + file.getFilename())
@@ -47,6 +51,24 @@ public class FileController {
         } else {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("No file was found with id: " + fileId);
         }
+    }
 
+    @GetMapping("/read/all")
+    public List<File> readAllData(){
+        List<File> listReturn = fileService.readAllFiles();
+        return listReturn;
+    }
+
+    @GetMapping("/download/name/{name}")
+    public ResponseEntity downloadFileName(@PathVariable("name") String name) throws IOException {
+        File file = fileService.readFileByName(name);
+
+        if (file != null) {
+            return ResponseEntity.ok().contentType(MediaType.parseMediaType("multipart/form-data"))
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename= " + file.getFilename())
+                    .body(new ByteArrayResource(file.getData()));
+        } else {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("No file was found with name : " + name);
+        }
     }
 }

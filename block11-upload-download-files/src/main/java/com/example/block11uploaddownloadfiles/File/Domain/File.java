@@ -34,6 +34,9 @@ public class File implements Serializable {
     @Column
     private Date uploadDate;
 
+    @Column
+    private String type;
+
     @Lob
     private byte[] data;
 
@@ -42,5 +45,4 @@ public class File implements Serializable {
         Date uploadDate = actualCalendar.getTime();
         this.setUploadDate(uploadDate);
     }
-
 }

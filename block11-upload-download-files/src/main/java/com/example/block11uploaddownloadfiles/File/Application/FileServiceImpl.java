@@ -6,9 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.List;
 
 @Service
 public class FileServiceImpl implements FileService{
+
+    private final ModelMapper modelMapper;
 
     @Autowired
     FileRepository fileRepository;
@@ -31,6 +34,18 @@ public class FileServiceImpl implements FileService{
     @Override
     public File readFile(int idFile) {
         return fileRepository.findById(idFile).orElseThrow(() -> new EntityNotFoundException() );
+    }
+
+    @Override
+    public File readFileByName(String name) {
+        return fileRepository.findByFilename(name);
+    }
+
+    @Override
+    public List<File> readAllFiles() {
+        List<File> fileList = fileRepository.findAll();
+        return fileList;
+        //return fileRepository.findAll();
     }
 
     @Override
