@@ -3,7 +3,7 @@ package com.example.block7crudvalidation.person.infrastructure.controller;
 import com.example.block7crudvalidation.exceptions.EntityNotFoundException;
 import com.example.block7crudvalidation.exceptions.UnprocessableEntityException;
 import com.example.block7crudvalidation.feign.FeignServer;
-import com.example.block7crudvalidation.person.infrastructure.controller.domain.Person;
+import com.example.block7crudvalidation.person.domain.Person;
 import com.example.block7crudvalidation.person.application.PersonServiceImpl;
 import com.example.block7crudvalidation.person.infrastructure.controller.dto.PersonDTO;
 import com.example.block7crudvalidation.person.infrastructure.controller.dto.StudentPersonDTO;
@@ -16,7 +16,19 @@ import com.example.block7crudvalidation.teacher.infrastructure.controller.dto.Te
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/user")
@@ -33,6 +45,9 @@ public class ControllerPerson {
 
     @Autowired
     FeignServer feignServer;
+
+    @PersistenceContext
+    EntityManager entityManager;
 
 
     //La etiqueta @CrossOrigin nos permite que se acepten conexiones desde una dirección o direcciones que le son
@@ -122,5 +137,61 @@ public class ControllerPerson {
         TeacherDTO teacherDTO = new TeacherDTO();
         teacherDTO.getTeacherSimpleInfo(feignServer.readTeacherById(id));
         return teacherDTO;
+    }
+
+    //Filtering done with CriteriaBuilder
+    //All hail the mighty HashMap... PRAISE THE SUN!
+    @GetMapping("/filter")
+    public List<Person> filterPersonByParams(@RequestParam(value = "order", required = false) String order, @RequestParam HashMap<String, String> conditions){
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Person> query = criteriaBuilder.createQuery(Person.class);
+        Root<Person> personRoot = query.from(Person.class);
+
+        //Little check so we know what values do we have inside our variable
+        conditions.forEach((field,value) -> System.out.println(field + " = " + value));
+
+        //We add the predicates here, so they can add up to each other and then act as a filter
+        List<Predicate> predicates = new ArrayList<>();
+
+        conditions.forEach( (field, value) -> {
+            switch(field) {
+                case "user", "name", "surname":
+                    predicates.add(criteriaBuilder.like(personRoot.get(field),"%" + (String) value + "%"));
+                    break;
+                case "dateGT":
+                    try {
+                        predicates.add(criteriaBuilder.greaterThan(personRoot.get("created_date"),new SimpleDateFormat("dd-mm-yyyy").parse(value)));
+                    } catch (ParseException e) {
+                        throw new RuntimeException(e);
+                    }
+                    break;
+                case "dateLT":
+                    try {
+                        predicates.add(criteriaBuilder.lessThan(personRoot.get("created_date"), new SimpleDateFormat("dd-mm-yyyy").parse(value)));
+                    } catch (ParseException e) {
+                        throw new RuntimeException(e);
+                    }
+            }
+        });
+
+        query.select(personRoot).where(predicates.toArray(new Predicate[predicates.size()]));
+
+        //In case that the parameter order has any of these 2 values they will get sorted out by the method chosen
+        if (order != null) {
+            if (order.contains("user")) {
+                query.orderBy(criteriaBuilder.asc(personRoot.get("username")));
+            } else if (order.contains("name")) {
+                query.orderBy(criteriaBuilder.asc(personRoot.get("name")));
+            };
+        }
+
+        //Then we return the query with all the filters and ordering done
+        return entityManager
+                .createQuery(query)
+                .getResultList()
+                .stream()
+                //Possible fail, check it out with a mentor
+                .map(Person::new)
+                .toList();
     }
 }

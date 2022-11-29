@@ -1,7 +1,7 @@
 package com.example.block7crudvalidation.person.application;
 
 import com.example.block7crudvalidation.exceptions.EntityNotFoundException;
-import com.example.block7crudvalidation.person.infrastructure.controller.domain.Person;
+import com.example.block7crudvalidation.person.domain.Person;
 import com.example.block7crudvalidation.person.infrastructure.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
 package com.example.block7crudvalidation.student.domain;
 
-import com.example.block7crudvalidation.person.infrastructure.controller.domain.Person;
+import com.example.block7crudvalidation.person.domain.Person;
 import com.example.block7crudvalidation.teacher.domain.Teacher;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import javax.persistence.*;
