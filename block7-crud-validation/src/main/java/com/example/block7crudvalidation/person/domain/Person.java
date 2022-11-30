@@ -96,7 +96,7 @@ public class Person implements Serializable {
         }
     }
 
-    public void fillDTO(PersonDTO personDTO) {
+    public PersonDTO fillDTO(PersonDTO personDTO) {
 
         this.setUsername(personDTO.getUsername());
         this.setPassword(personDTO.getPassword());
@@ -109,5 +109,6 @@ public class Person implements Serializable {
         this.setCreated_date(personDTO.getCreated_date());
         this.setImage_url(personDTO.getImage_url());
         this.setTermination_date(personDTO.getTermination_date());
+        return null;
     }
 }

@@ -14,6 +14,8 @@ import com.example.block7crudvalidation.teacher.application.TeacherServiceImpl;
 import com.example.block7crudvalidation.teacher.domain.Teacher;
 import com.example.block7crudvalidation.teacher.infrastructure.controller.dto.TeacherDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.support.PagedListHolder;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityManager;
@@ -155,7 +157,7 @@ public class ControllerPerson {
 
         conditions.forEach( (field, value) -> {
             switch(field) {
-                case "user", "name", "surname":
+                case "username", "name", "surname":
                     predicates.add(criteriaBuilder.like(personRoot.get(field),"%" + (String) value + "%"));
                     break;
                 case "dateGT":
@@ -186,12 +188,14 @@ public class ControllerPerson {
         }
 
         //Then we return the query with all the filters and ordering done
-        return entityManager
-                .createQuery(query)
-                .getResultList()
-                .stream()
-                //Possible fail, check it out with a mentor
-                .map(Person::new)
-                .toList();
+        List<Person> personList = entityManager.createQuery(query).getResultList().stream().map(Person::new).toList();
+
+        //We declare a PagedListHolder of type Person
+        PagedListHolder<Person> page = new PagedListHolder<Person>(personList);
+        //Here we set the parameters we want for the paging process
+        page.setPageSize(2);
+        page.setPage(1);
+
+        return page.getPageList();
     }
 }
