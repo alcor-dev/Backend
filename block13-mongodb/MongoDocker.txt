@@ -1,0 +1,2 @@
+//Using this command, you can create a MongoDB instance in docker that will run the testDatabase
+docker run -d --name mongoSpring -e MONGO_INITDB_DATABASE=mongoSpring mongo
