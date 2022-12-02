@@ -3,10 +3,7 @@ package com.example.block7crudvalidation.person.domain;
 import javax.persistence.*;
 
 import com.example.block7crudvalidation.person.infrastructure.controller.dto.PersonDTO;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.io.Serializable;
 import java.sql.Date;
@@ -14,6 +11,7 @@ import java.sql.Date;
 
 @Data
 @Entity
+@Builder
 @Table(name = "person")
 @ToString
 @AllArgsConstructor
