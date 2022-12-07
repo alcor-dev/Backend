@@ -1,27 +1,31 @@
 package com.example.block7crudvalidation.security;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
 import com.example.block7crudvalidation.person.application.PersonServiceImpl;
 import com.example.block7crudvalidation.person.domain.Person;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.Base64;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 @RestController
-@RequestMapping
 public class SecurityController {
 
     @Autowired
     PersonServiceImpl personService;
 
     @PostMapping("security/login")
-    public String loginUser(@RequestParam("username") String username, @RequestParam("password") String password) {
+    public String loginUser(@RequestParam String username, @RequestParam String password) {
         Person person = personService.readPersonByUsername(username);
         System.out.println("El nombre del usuario es: " + username + "\nLa clave del usuario es: " + password);
 
@@ -49,14 +53,13 @@ public class SecurityController {
     }
 
     private String getJwtToken(String username, String role) {
-        String secretKey = "mySecretKeyThatMightNotBeSoSecretSoLetsFillTheKeyWithUselessInfo2684789654";
         List<GrantedAuthority> grantedAuthorities = AuthorityUtils.commaSeparatedStringToAuthorityList(role);
-        String token = Jwts.builder().setId("BosonitJWT").setSubject(username)
-                .claim("authorities",
+        String token = Jwts.builder().setId("Bosonit").setSubject(username)
+                .claim("roles",
                         grantedAuthorities.stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 600000))
-                .signWith(SignatureAlgorithm.HS512, secretKey.getBytes()).compact();
+                .signWith(SignatureAlgorithm.HS512, "secret".getBytes()).compact();
         return "Bearer " + token;
     }
 }

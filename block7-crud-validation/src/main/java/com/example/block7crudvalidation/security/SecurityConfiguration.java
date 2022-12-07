@@ -23,16 +23,35 @@ import static org.springframework.http.HttpMethod.*;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class SecurityConfiguration {
+
+    @Bean
+    PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+    @Autowired
+    AuthenticationConfiguration authenticationConfiguration;
+
+    @Bean
+    public AuthenticationManager authenticationManagerBean(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
+    }
 
     //With this we can put all the filters without any kind of problem, really handy I must say
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests((authz) -> authz
-                        .antMatchers("/user/").hasRole("USER")
-                        .antMatchers("/user/**").hasRole("ADMIN")
-                )
-                .formLogin(Customizer.withDefaults());
-
+    @Bean
+    protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        CustomAuthenticationFilter customAuthenticationFilter = new CustomAuthenticationFilter(authenticationManagerBean(authenticationConfiguration));
+//        customAuthenticationFilter.setFilterProcessesUrl("/security/login");
+        http.cors().disable().csrf().disable()
+                .authorizeRequests().antMatchers(POST,"/security/login/**").permitAll()
+                .antMatchers("/user/**").hasAnyAuthority("ADMIN")
+                .antMatchers(GET,"/user/").hasAnyAuthority("USER")
+                .antMatchers(GET, "/user/id/**").hasAnyAuthority("USER")
+                .antMatchers(GET, "/user/name/**").hasAnyAuthority("USER")
+                .anyRequest().authenticated()
+                .and()
+                .addFilter(customAuthenticationFilter)
+                .addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 
@@ -40,6 +59,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     //we will use to get the JWT token in order to authenticate
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().antMatchers("/security/login/**", "/h2-console/**");
+        return (web) -> web.ignoring().antMatchers( "/h2-console/**", "/login");
     }
 }
