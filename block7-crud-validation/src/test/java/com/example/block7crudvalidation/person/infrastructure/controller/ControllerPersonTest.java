@@ -1,6 +1,5 @@
 package com.example.block7crudvalidation.person.infrastructure.controller;
 
-import com.example.block7crudvalidation.exceptions.EntityNotFoundException;
 import com.example.block7crudvalidation.person.application.PersonServiceImpl;
 import com.example.block7crudvalidation.person.domain.Person;
 import com.example.block7crudvalidation.person.infrastructure.repository.PersonRepository;
@@ -14,9 +13,6 @@ import java.sql.Date;
 import static junit.framework.TestCase.assertNotNull;
 import static org.mockito.Mockito.when;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
-
-
 
 @DataJpaTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)

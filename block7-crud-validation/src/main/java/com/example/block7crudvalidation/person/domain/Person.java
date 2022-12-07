@@ -55,6 +55,9 @@ public class Person implements Serializable {
     @Column
     private Date termination_date;
 
+    @Column
+    private Boolean admin;
+
     //This methods gets some person and creates a new instance, doesn't make any sense but.. IT WORKS
     //**THUNDER AND LIGHTNING IN THE BACKGROUND*
     public Person(Person person) {

@@ -4,6 +4,8 @@ import com.example.block7crudvalidation.exceptions.EntityNotFoundException;
 import com.example.block7crudvalidation.person.domain.Person;
 import com.example.block7crudvalidation.person.infrastructure.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -38,10 +40,17 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
+    public Person readPersonByUsername(String username) throws UsernameNotFoundException {
+        return personRepository.readPersonByUsername(username);
+    }
+
+    @Override
     public String updatePerson(Person person) {
         personRepository.save(person);
         return "La persona: " + person.getName().toUpperCase() + " ha sido actualizada";
     }
+
+
 
     @Override
     public String deletePerson(int id){
