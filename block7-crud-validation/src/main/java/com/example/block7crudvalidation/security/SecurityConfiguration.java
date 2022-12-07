@@ -44,6 +44,9 @@ public class SecurityConfiguration {
 //        customAuthenticationFilter.setFilterProcessesUrl("/security/login");
         http.cors().disable().csrf().disable()
                 .authorizeRequests().antMatchers(POST,"/security/login/**").permitAll()
+                //Line created just for allowing the input of Persons over the database
+                //if there isn't any previously
+//                .antMatchers(POST,"/user/add").permitAll()
                 .antMatchers("/user/**").hasAnyAuthority("ADMIN")
                 .antMatchers(GET,"/user/").hasAnyAuthority("USER")
                 .antMatchers(GET, "/user/id/**").hasAnyAuthority("USER")

@@ -53,9 +53,9 @@ public class PersonServiceImpl implements PersonService {
 
 
     @Override
-    public String deletePerson(int id){
+    public void deletePerson(int id){
         personRepository.deleteById(id);
-        return "La persona con ID: " + id + "ha sido eliminada";
+        System.out.println("La persona con ID: " + id + "ha sido eliminada");
     }
 
     @Override

@@ -13,7 +13,7 @@ public interface PersonService {
     Person readPersonByName(String name) throws EntityNotFoundException;
     Person readPersonByUsername(String username) throws UsernameNotFoundException;
     String updatePerson(Person person);
-    String deletePerson(int id);
+    void deletePerson(int id);
     List<Person> readEveryPerson();
 
 

@@ -72,6 +72,12 @@ public class ControllerPerson {
         personList.stream().forEach(person -> personService.createPerson(person));
      }
 
+     @DeleteMapping("/delete/{id}")
+     public String deletePerson(@PathVariable Integer id){
+        personService.deletePerson(id);
+        return "La persona con ID: " + id + " ha sido eliminada";
+     }
+
     //Filtro para mostrar datos según el tipo de dato que llegue y si está asociado a profesor o a alumno
     @GetMapping("/id/{id}")
     public PersonDTO readPersonById(@PathVariable("id") int id, @RequestParam(name = "outputType", defaultValue = "simple") String type ) throws EntityNotFoundException {
