@@ -25,14 +25,34 @@ public class TripServiceImpl implements TripService {
     }
 
     @Override
+    public Integer readTripCount(Integer idTrip) {
+        Trip trip = tripRepository.findById(idTrip).orElseThrow(()-> new EntityNotFoundException());
+        return trip.getPassenger().size();
+    }
+
+    @Override
     public List<Trip> readAllTrips() {
         return tripRepository.findAll();
+    }
+
+    @Override
+    public String verify(Integer idTrip) {
+        Trip trip = tripRepository.findById(idTrip).orElseThrow(() -> new EntityNotFoundException());
+        return trip.getStatus();
     }
 
     @Override
     public void updateTrip(Trip trip) {
         tripRepository.save(trip);
     }
+
+    @Override
+    public void updateStatusTrip(Integer idTrip, String status) {
+        Trip trip = tripRepository.findById(idTrip).orElseThrow(()-> new EntityNotFoundException());
+        trip.setStatus(status);
+        tripRepository.save(trip);
+    }
+
 
     @Override
     public void deleteTrip(Integer idTrip) {

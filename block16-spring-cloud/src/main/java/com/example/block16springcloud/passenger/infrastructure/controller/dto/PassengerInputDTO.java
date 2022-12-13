@@ -1,6 +1,5 @@
-package com.example.block16springcloud.clients.infrastructure.controller.dto;
+package com.example.block16springcloud.passenger.infrastructure.controller.dto;
 
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +11,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class ClientsInputDTO implements Serializable {
+public class PassengerInputDTO implements Serializable {
 
     private String firstName;
 

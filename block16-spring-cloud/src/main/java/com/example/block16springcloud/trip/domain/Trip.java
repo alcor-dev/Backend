@@ -1,5 +1,7 @@
 package com.example.block16springcloud.trip.domain;
 
+import com.example.block16springcloud.passenger.domain.Passenger;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,6 +10,7 @@ import lombok.ToString;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -33,8 +36,10 @@ public class Trip implements Serializable {
     @Column
     private Date arrivalDate;
 
-    @Column
-    private String passenger;
+    @OneToMany
+    @JsonBackReference
+    @JoinColumn
+    private List<Passenger> passenger;
 
     @Column
     private String status;
