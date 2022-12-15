@@ -12,7 +12,6 @@ public interface PassengerService {
     PassengerOutputDTO readPassenger(Integer idClients);
     Passenger getPassenger(Integer idClients);
     List<PassengerOutputDTO> readAllPassengers();
-
     void updatePassenger(PassengerInputDTO passengersInputDTO);
     void deletePassenger(Integer idClients);
 }

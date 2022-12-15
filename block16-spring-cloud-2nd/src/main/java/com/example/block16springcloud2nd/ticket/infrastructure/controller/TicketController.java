@@ -31,6 +31,11 @@ public class TicketController {
         return "El ticket de " + passenger.getFirstName() + " y viaje a " + trip.getDestination() + " ha sido creado";
     }
 
+    @GetMapping("/feign/{idPassenger}")
+    public Passenger readFeign(@PathVariable("idPassenger") Integer idPassenger) {
+        return feignServer.readPassengerById(idPassenger);
+    }
+
     @GetMapping("/{id}")
     public Ticket readTicket(@PathVariable("id") Integer idTicket) {
         return ticketService.readTicket(idTicket);

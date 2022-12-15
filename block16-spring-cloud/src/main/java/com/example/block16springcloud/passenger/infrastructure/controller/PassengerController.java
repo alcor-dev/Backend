@@ -1,6 +1,7 @@
 package com.example.block16springcloud.passenger.infrastructure.controller;
 
 import com.example.block16springcloud.passenger.application.PassengerServiceImpl;
+import com.example.block16springcloud.passenger.domain.Passenger;
 import com.example.block16springcloud.passenger.infrastructure.controller.dto.PassengerInputDTO;
 import com.example.block16springcloud.passenger.infrastructure.controller.dto.PassengerOutputDTO;
 import com.example.block16springcloud.trip.application.TripServiceImpl;
@@ -28,6 +29,11 @@ public class PassengerController {
     @GetMapping("/{id}")
     public PassengerOutputDTO readPassenger(@PathVariable("id") Integer idClient) {
         return passengerService.readPassenger(idClient);
+    }
+
+    @GetMapping("/feign/{id}")
+    public Passenger readPassengerFeign(@PathVariable("id") Integer idPassenger) {
+        return passengerService.getPassenger(idPassenger);
     }
 
     @GetMapping
