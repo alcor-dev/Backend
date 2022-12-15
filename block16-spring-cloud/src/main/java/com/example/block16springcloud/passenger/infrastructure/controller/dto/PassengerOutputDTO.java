@@ -15,12 +15,14 @@ import java.io.Serializable;
 public class PassengerOutputDTO implements Serializable {
 
     public PassengerOutputDTO(Passenger passenger) {
+        this.setIdPassenger(passenger.getIdPassenger());
         this.setFirstName(passenger.getFirstName());
         this.setLastName(passenger.getLastName());
         this.setAge(passenger.getAge());
         this.setEmail(passenger.getEmail());
         this.setPhone(passenger.getPhone());
     }
+    private Integer idPassenger;
 
     private String firstName;
 

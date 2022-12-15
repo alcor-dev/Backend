@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "ticketFeign", url = "http://localhost:8080")
 public interface FeignServer {
 
-    @GetMapping("/passenger/feign/{id}")
+    @GetMapping("/passenger/{id}")
     Passenger readPassengerById(@PathVariable("id") Integer idPassenger);
 
     @GetMapping("/trip/{id}")
