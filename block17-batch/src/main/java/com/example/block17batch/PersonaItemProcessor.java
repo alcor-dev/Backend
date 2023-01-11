@@ -1,0 +1,15 @@
+package com.example.block17batch;
+
+import org.springframework.batch.item.ItemProcessor;
+
+public class PersonaItemProcessor implements ItemProcessor<Persona, Persona> {
+
+    @Override
+    public Persona process(Persona persona) throws Exception {
+        final String firstName = persona.getFirstName().toUpperCase();
+        final String lastName = persona.getLastName().toUpperCase();
+
+        final Persona upperPerson = new Persona(firstName, lastName);
+        return upperPerson;
+    }
+}
