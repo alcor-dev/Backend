@@ -30,6 +30,7 @@ public class BatchConfiguration {
                 .name("personaItemReader")
                 .resource(new PathResource("src/main/resources/people.csv"))
                 .delimited()
+                //Here we define how to read the info from the resource we've assigned beforehand
                 .names(new String[]{"firstName", "lastName"})
                 .fieldSetMapper(new BeanWrapperFieldSetMapper<Persona>() {{
                     setTargetType(Persona.class);
@@ -44,32 +45,40 @@ public class BatchConfiguration {
     }
 
     //This one creates the query to pass all the data into the database
+    //It returns a datatype instead of just executing some code like the other two before this one
     @Bean
     public JdbcBatchItemWriter<Persona> writer(DataSource dataSource) {
         return new JdbcBatchItemWriterBuilder<Persona>()
                 .itemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>())
+                //Here goes the SQL statement that will interact in this case with our database (PostgreSQL/batch)
                 .sql("INSERT INTO people (first_name, last_name) VALUES (:firstName, :lastName)")
                 .dataSource(dataSource)
                 .build();
     }
 
+    //Here we define how the job should behave, in this one, we're creating one where the step 1 is being executed
+    //all the time
     @Bean
     public Job importUserJob(JobRepository jobRepository, Step step1) {
         return new JobBuilder("importUserJob", jobRepository)
                 .incrementer(new RunIdIncrementer())
+                //Here we put the steps that job should take when being executed
                 .flow(step1)
                 .end()
                 .build();
     }
 
-    //Here we define what we are doing with this step
+    //Here we define what we are doing with this step that will be executed later inside the job we will assign to
     @Bean
     public Step step1(JobRepository jobRepository,
                       PlatformTransactionManager transactionManager, JdbcBatchItemWriter<Persona> writer) {
         return new StepBuilder("step1", jobRepository)
                 .<Persona, Persona> chunk(10, transactionManager)
+                //Gets the information from the CSV file
                 .reader(reader())
-                //.processor(processor())
+                //Takes the information and modifies it
+                .processor(processor())
+                //Then takes the information and puts it into the database
                 .writer(writer)
                 .build();
     }
